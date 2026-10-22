@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semua Pengumuman - SDN Gedong 11 Pagi</title>
+    <link rel="shortcut icon" href="/assets/icon/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/dist/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    
+    <style>
+      :root {
+        --bg-utama: #f8fafc;
+        --bg-kartu: #ffffff;
+        --teks-utama: #0f172a;
+        --teks-deskripsi: #334155;
+        --teks-redup: #64748b;
+        --garis-border: #e2e8f0;
+        --bg-navbar: #ffffff;
+        --bg-footer: #ffffff;
+        --teks-footer: #334155;
+        --border-pengumuman: #cce3ff;
+        --badge-bg: #e2e8f0;
+        --badge-teks: #475569;
+      }
+
+      [data-theme="dark"] {
+        --bg-utama: #0f172a;
+        --bg-kartu: #1e293b;
+        --teks-utama: #f8fafc;
+        --teks-deskripsi: #cbd5e1;
+        --teks-redup: #94a3b8;
+        --garis-border: #334155;
+        --bg-navbar: #1e293b;
+        --bg-footer: #0f172a;
+        --teks-footer: #cbd5e1;
+        --border-pengumuman: #2e3d52;
+        --badge-bg: #334155;
+        --badge-teks: #cbd5e1;
+      }
+      
+      body, main, div, h1, h2, h3, p, span, nav, a, button, section {
+        transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .navbar {
+        background-color: var(--bg-navbar) !important;
+        border-bottom: 1px solid var(--garis-border);
+      }
+      .navbar-box .menu li a {
+        color: var(--teks-utama) !important;
+      }
+      .dropdown-menu {
+        background-color: var(--bg-kartu) !important;
+        border: 1px solid var(--garis-border);
+      }
+      .dropdown-menu li a {
+        color: var(--teks-utama) !important;
+      }
+      .menu-toggle i {
+        color: var(--teks-utama) !important;
+      }
+
+      .announcement-container { 
+        padding: 140px 0 80px 0; 
+        min-height: 75vh; 
+        background-color: var(--bg-utama); 
+      }
+      
+      .announcement-grid { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+        gap: 30px; 
+        margin-top: 40px; 
+      }
+      
+      .announcement-card { 
+        background: var(--bg-kartu); 
+        border: 1px solid var(--border-pengumuman); 
+        border-radius: 12px; 
+        overflow: hidden; 
+        display: flex; 
+        box-shadow: 0 4px 15px rgba(0, 123, 255, 0.01); 
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.25s ease; 
+      }
+      
+      .announcement-card:hover { 
+        transform: translateY(-5px); 
+        box-shadow: 0 10px 25px rgba(0, 123, 255, 0.08); 
+      }
+      
+      .date-box { 
+        background: #007bff; 
+        color: #ffffff; 
+        width: 85px; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center; 
+        text-align: center; 
+        font-weight: 700; 
+        flex-shrink: 0; 
+        padding: 10px; 
+      }
+      
+      .date-box .day { 
+        font-size: 1.8rem; 
+        line-height: 1; 
+      }
+      
+      .date-box .month { 
+        font-size: 0.85rem; 
+        text-transform: uppercase; 
+        margin-top: 5px; 
+        font-weight: 500; 
+      }
+      
+      .content-box { 
+        padding: 25px; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: space-between; 
+        flex-grow: 1; 
+      }
+      
+      .badge-category { 
+        background: var(--badge-bg); 
+        color: var(--badge-teks); 
+        padding: 4px 12px; 
+        border-radius: 20px; 
+        font-size: 0.75rem; 
+        font-weight: 500; 
+        align-self: flex-start; 
+        margin-bottom: 12px; 
+      }
+      
+      .announcement-card h3 { 
+        font-size: 1.15rem; 
+        color: var(--teks-utama); 
+        font-weight: 700; 
+        margin-bottom: 10px; 
+        line-height: 1.4; 
+      }
+      
+      .announcement-card p { 
+        color: var(--teks-deskripsi); 
+        font-size: 0.9rem; 
+        line-height: 1.6; 
+        margin-bottom: 15px; 
+      }
+      
+      .read-more { 
+        color: #007bff; 
+        text-decoration: none; 
+        font-size: 0.9rem; 
+        font-weight: 600; 
+        display: inline-flex; 
+        align-items: center; 
+        gap: 5px; 
+        transition: gap 0.2s ease; 
+      }
+      
+      .read-more:hover { 
+        gap: 8px; 
+        color: #0056b3; 
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    </script>
+    
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-box">
+          <div class="logo" style="display: flex; align-items: center; gap: 12px;">
+            <img src="assets/images/logo.png" alt="Logo SDN Gedong 11 Pagi" style="height: 45px; width: auto; object-fit: contain;">
+            <h1 style="font-size: 1.25rem; font-weight: 700; color: var(--teks-utama); margin: 0; line-height: 1.2;">
+              SDN Gedong 11 Pagi
+            </h1>
+          </div>
+
+          <ul class="menu" id="navMenu">
+            <li><a href="index.html#beranda">Beranda</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">Tentang Kami <i class="fa-solid fa-caret-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="profil.html">Profil Sekolah</a></li>
+                <li><a href="visi-misi.html">Visi & Misi</a></li>
+                <li><a href="guru-tendik.html">Guru dan Tendik</a></li>
+              </ul>
+            </li>
+            <li><a href="akademik.html">Akademik</a></li>
+            <li><a href="pengumuman.html" class="active">Pengumuman</a></li>
+            <li><a href="prestasi.html">Prestasi</a></li>
+            <li><a href="spmb.html">SPMB</a></li>
+            <li><a href="index.html#kontak">Kontak</a></li>
+            
+            <li style="list-style: none; display: inline-flex; align-items: center; margin-left: 15px;">
+              <button id="darkModeToggle" style="background: none; border: none; color: var(--teks-utama); cursor: pointer; font-size: 1.2rem; padding: 5px; display: flex; align-items: center; justify-content: center;" title="Ubah Tema">
+                <i class="fa-solid fa-moon"></i>
+              </button>
+            </li>
+          </ul>
+
+          <div class="menu-toggle" id="mobileMenu">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- DAFTAR PENGUMUMAN -->
+    <main class="announcement-container">
+      <div class="container">
+        
+        <div class="section-title" style="text-align: center;">
+          <h1 style="font-size: 2.5rem; color: var(--teks-utama); font-weight: 700;">Pengumuman Sekolah</h1>
+          <p style="color: var(--teks-redup); font-size: 1rem; margin-top: 5px;">Kumpulan seluruh informasi resmi dan agenda penting SDN Gedong 11 Pagi</p>
+        </div>
+
+        <!-- WADAH OTOMATIS PENGUMUMAN -->
+        <div class="announcement-grid" id="wadah-pengumuman">
+          <!-- Data diisi otomatis oleh JavaScript -->
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="kontak" class="footer" style="background-color: #0f172a; padding: 60px 0 20px 0; color: #cbd5e1;">
+      <style>
+        .footer-social-link {
+          display: grid; 
+          place-items: center; 
+          width: 40px; 
+          height: 40px; 
+          background-color: #1e293b; 
+          border-radius: 50%; 
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+        .instagram-hover:hover { background-color: #e1306c !important; transform: translateY(-3px); }
+        .instagram-hover:hover i { color: #ffffff !important; }
+        
+        .tiktok-hover:hover { background-color: #000000 !important; box-shadow: 0 0 10px rgba(255,255,255,0.5); transform: translateY(-3px); }
+        .tiktok-hover:hover i { color: #00f2fe !important; }
+        
+        .youtube-hover:hover { background-color: #ff0000 !important; transform: translateY(-3px); }
+        .youtube-hover:hover i { color: #ffffff !important; }
+      </style>
+
+      <div class="container">
+        <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-start; text-align: left;">
+
+          <!-- KOLOM 1 -->
+          <div style="flex: 1; min-width: 250px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 25px;">
+              <div style="width: 45px; height: 45px; background-color: #1e293b; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid #334155; flex-shrink: 0; overflow: hidden;">
+                <img src="assets/images/logo.png" alt="Logo SDN Gedong 11 Pagi" style="width: 100%; height: 100%; object-fit: contain; padding: 4px;">
+              </div>
+              <div>
+                <h4 style="font-size: 1.15rem; color: #ffffff; font-weight: 700; margin: 0; line-height: 1.2;">SDN Gedong 11 Pagi</h4>
+                <span style="font-size: 0.8rem; color: #94a3b8; display: block; margin-top: 2px;">NPSN: 20108996</span>
+              </div>
+            </div>
+
+            <h3 style="font-size: 1.5rem; color: #007bff; font-weight: 700; margin-bottom: 15px;">Social Media</h3>
+            
+            <p style="color: #cbd5e1; font-size: 1rem; line-height: 1.5; margin-bottom: 20px;">
+              Hubungi atau ikuti keseruan kegiatan belajar mengajar kami melalui platform media sosial resmi sekolah.
+            </p>
+
+            <div style="display: flex; gap: 12px;">
+              <a href="https://www.instagram.com/sdngedong11pagi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="footer-social-link instagram-hover">
+                <i class="fab fa-instagram" style="color: #e1306c; font-size: 1.1rem; transition: color 0.3s;"></i>
+              </a>
+              <a href="https://www.tiktok.com/@sdngedong11offici?is_from_webapp=1&sender_device=pc" class="footer-social-link tiktok-hover">
+                <i class="fab fa-tiktok" style="color: #ffffff; font-size: 1.1rem; transition: color 0.3s;"></i>
+              </a>
+              <a href="https://youtube.com/@sdn_gedong11channel85?si=f6ZG_akzDdHY008t" class="footer-social-link youtube-hover">
+                <i class="fab fa-youtube" style="color: #ff0000; font-size: 1.1rem; transition: color 0.3s;"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- KOLOM 2 -->
+          <div style="flex: 1; min-width: 200px;">
+            <h3 style="font-size: 1.5rem; color: #007bff; font-weight: 700; margin-bottom: 20px;">Tautan Langsung</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+              <li><a href="index.html#beranda" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Beranda</a></li>
+              <li><a href="profil.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Tentang Kami</a></li>
+              <li><a href="akademik.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Akademik</a></li>
+              <li><a href="pengumuman.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Pengumuman</a></li>
+              <li><a href="prestasi.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Prestasi</a></li>
+              <li><a href="spmb.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">SPMB</a></li>
+              <li><a href="index.html#kontak" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Kontak</a></li>
+            </ul>
+          </div>
+
+          <!-- KOLOM 3 -->
+          <div style="flex: 1; min-width: 280px;">
+            <h3 style="font-size: 1.5rem; color: #007bff; font-weight: 700; margin-bottom: 20px;">Kontak</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px;">
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5;">
+                <i class="fas fa-envelope" style="color: #007bff; margin-top: 4px;"></i>
+                <span>sd.gedong11@gmail.com</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5;">
+                <i class="fas fa-phone" style="color: #007bff; margin-top: 4px;"></i>
+                <span>021-7903894</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5;">
+                <i class="fas fa-map-marker-alt" style="color: #007bff; margin-top: 4px;"></i>
+                <div>
+                  <span>Jl. H. Taiman Barat II RT.05 RW.10 Kelurahan Gedong Kecamatan Pasar Rebo Kota Administrasi Jakarta Timur</span>
+                  <br>
+                  <a href="https://maps.app.goo.gl/ysCWEmixRhvcVdY39" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; color: #38bdf8; text-decoration: none; font-size: 0.85rem; margin-top: 6px; font-weight: 600;">
+                    <i class="fas fa-directions"></i> Lihat di Google Maps
+                  </a>
+                </div>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5; border-top: 1px solid #334155; padding-top: 12px;">
+                <i class="fas fa-clock" style="color: #007bff; margin-top: 4px;"></i>
+                <div>
+                  <span style="font-weight: 600; color: #ffffff; display: block; margin-bottom: 2px; font-size: 0.95rem;">Jam Pelayanan Administrasi:</span>
+                  <span style="font-size: 0.85rem; color: #94a3b8;">Senin - Jumat: 08.00 - 14.00 WIB<br>Sabtu &amp; Minggu: Libur</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="copyright" style="margin-top: 50px; border-top: 1px solid #334155; padding-top: 20px; text-align: center;">
+          <p>&copy; Copyright 2026 by <span>Admin</span>. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- SCRIPT KONTROL DATA -->
+    <script src="dist/js/script.js"></script>
+    <script>
+      const dataPengumuman = [
+        {
+          tanggal: "11",
+          bulan: "Sep",
+          kategori: "Edukasi dan Rekreasi",
+          judul: "Jadwal Pembagian Raport Semester Genap",
+          deskripsi: "Diberitahukan kepada seluruh orang tua siswa mengenai rincian pelaksanaan dan jam pengambilan raport...",
+          link: "detail-pengumuman-raport.html",
+          isLama: false
+        },
+        {
+          tanggal: "10",
+          bulan: "Jun",
+          kategori: "Kegiatan",
+          judul: "Persiapan Classmeeting Akhir Tahun Pelajaran",
+          deskripsi: "Rangkaian perlombaan olahraga dan seni antar kelas untuk mengasah bakat non-akademik siswa...",
+          link: "detail-pengumuman-2.html",
+          isLama: false
+        },
+        {
+          tanggal: "02",
+          bulan: "Jun",
+          kategori: "SPMB",
+          judul: "Alur Verifikasi Berkas Fisik SPMB 2026",
+          deskripsi: "Panduan penting bagi calon orang tua murid mengenai daftar berkas wajib yang harus dibawa ke loket...",
+          link: "detail-pengumuman-3.html",
+          isLama: false
+        },
+        {
+          tanggal: "28",
+          bulan: "Mei",
+          kategori: "Kegiatan",
+          judul: "Hari Lahir Pancasila & Libur Sekolah",
+          deskripsi: "Informasi pelaksanaan upacara peringatan Hari Lahir Pancasila serta jadwal libur nasional bagi seluruh siswa...",
+          link: "#",
+          isLama: true
+        }
+      ];
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const wadahPengumuman = document.getElementById("wadah-pengumuman");
+        if (wadahPengumuman) {
+          wadahPengumuman.innerHTML = dataPengumuman.map(item => `
+            <div class="announcement-card">
+              <div class="date-box" style="${item.isLama ? 'background: #64748b;' : ''}">
+                <span class="day">${item.tanggal}</span>
+                <span class="month">${item.bulan}</span>
+              </div>
+              <div class="content-box">
+                <div>
+                  <span class="badge-category">${item.kategori}</span>
+                  <h3>${item.judul}</h3>
+                  <p>${item.deskripsi}</p>
+                </div>
+                <a href="${item.link}" class="read-more">Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          `).join('');
+        }
+      });
+    </script>
+  </body>
+  <div id="wadah-pengumuman"></div>
+</html>

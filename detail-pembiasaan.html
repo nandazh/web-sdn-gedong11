@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Program Literasi - SDN Gedong 11 Pagi</title>
+    <link rel="stylesheet" href="/dist/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <style>
+    
+    .detail-container { padding: 120px 0 60px 0; min-height: 80vh; }
+.btn-back { display: inline-flex; align-items: center; gap: 8px; color: #007bff; font-weight: 600; margin-bottom: 20px; text-decoration: none; }
+.detail-content h1 { font-size: 2.5rem; color: #1e293b; margin-bottom: 20px; }
+.detail-meta { color: #64748b; font-size: 0.9rem; margin-bottom: 30px; }
+.detail-img { width: 100%; max-height: 450px; object-fit: cover; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.detail-text p { color: #334155; font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px; text-align: justify; }
+
+/* ==========================================
+   1. PENGATURAN TEMA (VARIABEL CSS)
+   ========================================== */
+:root {
+  --bg-luar: #f8fafc;
+  --bg-utama: #ffffff;
+  --teks-utama: #0f172a;
+  --teks-deskripsi: #334155;
+  --teks-redup: #64748b;
+  --garis-border: #e2e8f0;
+  
+  --bg-badge: #dcfce7;
+  --teks-badge: #15803d;
+  
+  --bg-blockquote: #f1f5f9;
+  --tombol-kembali: #007bff;
+  --bg-list-rundown: #f8fafc;
+}
+
+      [data-theme="dark"] {
+        --bg-luar: #0f172a;       /* Disamakan dengan warna Navy Dark index.html */
+        --bg-utama: #1e293b;      /* Warna kotak/card yang sedikit lebih terang dari background */
+        --teks-utama: #f8fafc;
+        --teks-deskripsi: #cbd5e1;
+        --teks-konten-card: #94a3b8;
+        --teks-redup: #94a3b8;
+        --garis-border: #334155;  /* Warna border yang lebih halus di latar gelap */
+        
+        --bg-badge: #3a2a14;
+        --teks-badge: #fbbf24;
+        
+        --bg-blockquote: #1e293b;
+        --tombol-kembali: #38bdf8;
+        
+        /* Untuk file pembiasaan & ekskul jika ada */
+        --bg-list-rundown: #1e293b;
+        --bg-rumpun-1: #1e293b;
+        --teks-rumpun-1: #38bdf8;
+        --bg-rumpun-2: #3a1414;
+        --teks-rumpun-2: #f87171;
+        --bg-rumpun-3: #143a26;
+        --teks-rumpun-3: #4ade80;
+      }
+
+/* Efek transisi perpindahan warna agar halus di mata */
+body, main, div, h1, h2, h3, p, span, a, i, section, li, ul {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+/* ==========================================
+   2. KELAS STRUKTUR ADAPTIF
+   ========================================== */
+.main-wrapper {
+  background-color: var(--bg-luar);
+  padding: 120px 0 80px 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.sidebar-box {
+  flex: 1; 
+  min-width: 280px; 
+  background-color: var(--bg-utama); 
+  border: 1px solid var(--garis-border); 
+  border-radius: 16px; 
+  padding: 25px; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02); 
+  box-sizing: border-box; 
+  position: sticky; 
+  top: 20px;
+}
+
+.rundown-item {
+  background: var(--bg-list-rundown); 
+  padding: 12px 16px; 
+  border-radius: 8px;
+}
+    
+    </style>
+  </head>
+  <body>
+  <!-- Taruh kode ini tepat di bawah tag <body> pada semua halaman -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
+   <body>
+    <!-- Menggunakan kelas .main-wrapper adaptif -->
+<div class="main-wrapper">
+  <div class="container" style="max-width: 1140px; margin: 0 auto; padding: 0 20px; box-sizing: border-box;">
+    
+    <!-- Tombol Kembali Elegan -->
+    <a href="index.html#akademik" style="display: inline-flex; align-items: center; gap: 8px; color: var(--tombol-kembali); text-decoration: none; font-size: 0.95rem; font-weight: 600; margin-bottom: 30px; transition: all 0.2s;" onmouseover="this.style.transform='translateX(-4px)'" onmouseout="this.style.transform='translateX(0)'">
+      <i class="fa-solid fa-arrow-left"></i> Kembali ke Akademik
+    </a>
+
+    <!-- Judul Artikel Besar & Berkarakter -->
+    <h1 style="font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--teks-utama); font-weight: 800; line-height: 1.25; margin-bottom: 20px; letter-spacing: -0.5px;">
+      SDN Gedong 11 Pagi Jakarta Timur Membentuk Karakter dan Prestasi Melalui Program Pembiasaan Harian
+    </h1>
+
+    <!-- Meta Informasi Artikel -->
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; padding-bottom: 25px; border-bottom: 1px solid var(--garis-border); margin-bottom: 35px; color: var(--teks-redup); font-size: 0.9rem;">
+      <span style="display: inline-block; background: var(--bg-badge); color: var(--teks-badge); padding: 4px 12px; border-radius: 4px; font-weight: 600; font-size: 0.8rem; text-transform: uppercase;">
+        <i class="fa-solid fa-star" style="margin-right: 4px;"></i> Karakter Siswa
+      </span>
+      <span><i class="fa-solid fa-calendar-days" style="margin-right: 6px;"></i> 11 Juli 2026</span>
+      <span><i class="fa-solid fa-user" style="margin-right: 6px;"></i> Tim Kesiswaan</span>
+    </div>
+
+    <!-- Foto Utama -->
+    <div style="width: 100%; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(15,23,42,0.08); margin-bottom: 40px;">
+      <img src="assets/images/literasi.JPG" alt="Program Pembiasaan Harian" style="width: 100%; height: auto; max-height: 500px; object-fit: cover; display: block;">
+    </div>
+
+    <!-- Grid Konten Komposisi 2 Kolom -->
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
+      
+      <!-- KOLOM KIRI: TEKS ARTIKEL UTAMA -->
+      <div style="flex: 2; min-width: 320px;">
+        
+        <p style="color: var(--teks-deskripsi); font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px; text-align: justify;">
+          <span style="float: left; font-size: 3.5rem; font-weight: 800; line-height: 0.8; margin-right: 10px; color: var(--tombol-kembali); font-family: serif;">D</span>alam upaya mewujudkan peserta didik yang cerdas, sehat, berkarakter, dan berakhlak mulia, SDN Gedong 11 Pagi terus mengembangkan berbagai program pembiasaan positif yang dilaksanakan secara rutin setiap hari. Program ini menjadi bagian dari implementasi Kurikulum Merdeka yang menekankan penguatan karakter, kompetensi, dan kebiasaan baik sejak usia sekolah dasar.
+        </p>
+
+        <p style="color: var(--teks-deskripsi); font-size: 1.1rem; line-height: 1.8; margin-bottom: 35px; text-align: justify;">
+          Melalui kegiatan yang terjadwal dari hari Senin hingga Jumat, peserta didik tidak hanya memperoleh pengetahuan akademik, tetapi juga dibimbing untuk mengembangkan kedisiplinan, kesehatan jasmani, kepemimpinan, budaya literasi, serta nilai-nilai spiritual dalam kehidupan sehari-hari.
+        </p>
+
+        <!-- Kutipan Tengah (Blockquote Highlight) -->
+        <div style="border-left: 4px solid var(--tombol-kembali); background-color: var(--bg-blockquote); padding: 20px 25px; margin: 35px 0; border-radius: 0 12px 12px 0;">
+          <p style="font-style: italic; color: var(--teks-utama); font-size: 1.15rem; line-height: 1.6; font-weight: 500; margin: 0;">
+            "Dengan perpaduan kegiatan nasionalisme, kesehatan, kepemimpinan, literasi, dan spiritualitas, sekolah terus berupaya menghadirkan pendidikan yang berkualitas."
+          </p>
+        </div>
+
+        <!-- Detail Pembiasaan Berdasarkan Hari -->
+        <div style="display: flex; flex-direction: column; gap: 30px; margin-top: 40px;">
+          
+          <div>
+            <h2 style="font-size: 1.4rem; color: var(--teks-utama); font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+              <span style="background: var(--tombol-kembali); color: #fff; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.9rem;">1</span> 
+              Senin: Pembiasaan Upacara Bendera
+            </h2>
+            <p style="color: var(--teks-deskripsi); font-size: 1.05rem; line-height: 1.8; text-align: justify; margin: 0;">
+              Setiap hari Senin, seluruh warga sekolah melaksanakan Upacara Bendera Merah Putih sebagai bentuk penghormatan kepada para pahlawan serta wujud cinta tanah air. Melalui kegiatan ini, peserta didik dilatih untuk memiliki sikap disiplin, tanggung jawab, nasionalisme, dan semangat kebangsaan.
+            </p>
+          </div>
+
+          <div>
+            <h2 style="font-size: 1.4rem; color: var(--teks-utama); font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+              <span style="background: var(--tombol-kembali); color: #fff; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.9rem;">2</span> 
+              Selasa: Pembiasaan Senam Kesehatan Jasmani
+            </h2>
+            <p style="color: var(--teks-deskripsi); font-size: 1.05rem; line-height: 1.8; text-align: justify; margin: 0;">
+              Kesehatan menjadi salah satu faktor penting dalam mendukung keberhasilan belajar. Oleh karena itu, setiap hari Selasa peserta didik mengikuti Senam Kesehatan Jasmani yang dilakukan bersama-sama di lingkungan sekolah.
+            </p>
+          </div>
+
+          <div>
+            <h2 style="font-size: 1.4rem; color: var(--teks-utama); font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+              <span style="background: var(--tombol-kembali); color: #fff; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.9rem;">3</span> 
+              Rabu: Pembiasaan Pramuka Siaga &amp; Penggalang
+            </h2>
+            <p style="color: var(--teks-deskripsi); font-size: 1.05rem; line-height: 1.8; text-align: justify; margin: 0;">
+              Hari Rabu diisi dengan kegiatan Pramuka Siaga dan Penggalang yang menjadi wadah pembentukan karakter peserta didik melalui aktivitas yang menyenangkan dan edukatif.
+            </p>
+          </div>
+
+          <div>
+            <h2 style="font-size: 1.4rem; color: var(--teks-utama); font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+              <span style="background: var(--tombol-kembali); color: #fff; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.9rem;">4</span> 
+              Kamis: Pembiasaan Literasi
+            </h2>
+            <p style="color: var(--teks-deskripsi); font-size: 1.05rem; line-height: 1.8; text-align: justify; margin: 0;">
+              Sebagai sekolah yang mendukung budaya belajar sepanjang hayat, SDN Gedong 11 Pagi melaksanakan Program Literasi setiap hari Kamis.
+            </p>
+          </div>
+
+          <div>
+            <h2 style="font-size: 1.4rem; color: var(--teks-utama); font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+              <span style="background: var(--tombol-kembali); color: #fff; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.9rem;">5</span> 
+              Jumat: Pembasaan Yasin &amp; Sholat Dhuha
+            </h2>
+            <p style="color: var(--teks-deskripsi); font-size: 1.05rem; line-height: 1.8; text-align: justify; margin: 0;">
+              Untuk memperkuat pendidikan karakter dan spiritual peserta didik, setiap hari Jumat dilaksanakan Pembacaan Surat Yasin dan Sholat Dhuha Bersama.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Penutup -->
+        <div style="margin-top: 40px; padding-top: 25px; border-top: 1px solid var(--garis-border);">
+          <h2 style="font-size: 1.5rem; color: var(--teks-utama); font-weight: 700; margin-bottom: 15px;">Mewujudkan Generasi Unggul Berkarakter</h2>
+          <p style="color: var(--teks-deskripsi); font-size: 1.05rem; line-height: 1.8; text-align: justify;">
+            Program pembiasaan harian yang dilaksanakan secara konsisten di SDN Gedong 11 Pagi merupakan bagian dari komitmen sekolah dalam menciptakan lingkungan pendidikan yang komprehensif.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- KOLOM KANAN: SIDEBAR JADWAL PROGRAM -->
+      <div class="sidebar-box">
+        <h3 style="font-size: 1.2rem; color: var(--teks-utama); font-weight: 700; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--tombol-kembali); display: flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-calendar-week" style="color: var(--tombol-kembali);"></i> Rundown Mingguan
+        </h3>
+        
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div class="rundown-item" style="border-left: 4px solid #64748b;">
+            <span style="font-weight: 700; color: var(--teks-utama); display: block; font-size: 0.9rem;">SENIN</span>
+            <span style="font-size: 0.85rem; color: var(--teks-redup);">Upacara Bendera</span>
+          </div>
+          <div class="rundown-item" style="border-left: 4px solid #0ea5e9;">
+            <span style="font-weight: 700; color: #0ea5e9; display: block; font-size: 0.9rem;">SELASA</span>
+            <span style="font-size: 0.85rem; color: var(--teks-redup);">Senam Kesehatan (SKJ)</span>
+          </div>
+          <div class="rundown-item" style="border-left: 4px solid #f97316;">
+            <span style="font-weight: 700; color: #f97316; display: block; font-size: 0.9rem;">RABU</span>
+            <span style="font-size: 0.85rem; color: var(--teks-redup);">Pramuka Siaga &amp; Penggalang</span>
+          </div>
+          <div class="rundown-item" style="border-left: 4px solid #a855f7;">
+            <span style="font-weight: 700; color: #a855f7; display: block; font-size: 0.9rem;">KAMIS</span>
+            <span style="font-size: 0.85rem; color: var(--teks-redup);">Gelar Budaya Literasi</span>
+          </div>
+          <div class="rundown-item" style="border-left: 4px solid #22c55e;">
+            <span style="font-weight: 700; color: #22c55e; display: block; font-size: 0.9rem;">JUMAT</span>
+            <span style="font-size: 0.85rem; color: var(--teks-redup);">Yasinan &amp; Sholat Dhuha</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+    </div>
+
+  </body>
+
+    </body>
+</html>

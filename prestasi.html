@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeri Prestasi - SDN Gedong 11 Pagi</title>
+    <link rel="shortcut icon" href="/assets/icon/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/dist/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    
+    <style>
+      :root {
+        --bg-utama: #f8fafc;
+        --bg-kartu: #ffffff;
+        --teks-utama: #0f172a;
+        --teks-deskripsi: #334155;
+        --teks-redup: #64748b;
+        --garis-border: #e2e8f0;
+        --bg-navbar: #ffffff;
+        --bg-footer: #ffffff;
+        --teks-footer: #334155;
+        --teks-nama-pemenang: #1e293b;
+      }
+
+      [data-theme="dark"] {
+        --bg-utama: #0f172a;
+        --bg-kartu: #1e293b;
+        --teks-utama: #f8fafc;
+        --teks-deskripsi: #cbd5e1;
+        --teks-redup: #94a3b8;
+        --garis-border: #334155;
+        --bg-navbar: #1e293b;
+        --bg-footer: #0f172a;
+        --teks-footer: #cbd5e1;
+        --teks-nama-pemenang: #f8fafc;
+      }
+      
+      body, main, div, h1, h2, h3, p, span, nav, a, button, section {
+        transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .navbar {
+        background-color: var(--bg-navbar) !important;
+        border-bottom: 1px solid var(--garis-border);
+      }
+      .navbar-box .menu li a {
+        color: var(--teks-utama) !important;
+      }
+      .dropdown-menu {
+        background-color: var(--bg-kartu) !important;
+        border: 1px solid var(--garis-border);
+      }
+      .dropdown-menu li a {
+        color: var(--teks-utama) !important;
+      }
+      .menu-toggle i {
+        color: var(--teks-utama) !important;
+      }
+
+      .achievement-container { 
+        padding: 140px 0 80px 0; 
+        min-height: 75vh; 
+        background-color: var(--bg-utama); 
+      }
+      
+      .achievement-grid { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        gap: 30px; 
+        margin-top: 40px; 
+        align-items: stretch;
+      }
+      
+      .prestasi-card { 
+        background: var(--bg-kartu); 
+        border-radius: 16px; 
+        overflow: hidden; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.02); 
+        border: 1px solid var(--garis-border); 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: space-between;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.25s ease, border-color 0.25s ease; 
+      }
+      
+      .prestasi-card:hover { 
+        transform: translateY(-8px); 
+        box-shadow: 0 20px 35px rgba(0, 123, 255, 0.1); 
+      }
+      
+      .img-wrapper { 
+        width: 100%; 
+        height: 220px; 
+        overflow: hidden; 
+        position: relative; 
+        background-color: var(--garis-border); 
+      }
+      
+      .img-wrapper img { 
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover; 
+        transition: transform 0.5s ease; 
+      }
+      
+      .prestasi-card:hover .img-wrapper img { 
+        transform: scale(1.06); 
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    </script>
+    
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-box">
+          <div class="logo" style="display: flex; align-items: center; gap: 12px;">
+            <img src="assets/images/logo.png" alt="Logo SDN Gedong 11 Pagi" style="height: 45px; width: auto; object-fit: contain;">
+            <h1 style="font-size: 1.25rem; font-weight: 700; color: var(--teks-utama); margin: 0; line-height: 1.2;">
+              SDN Gedong 11 Pagi
+            </h1>
+          </div>
+
+          <ul class="menu" id="navMenu">
+            <li><a href="index.html#beranda">Beranda</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">Tentang Kami <i class="fa-solid fa-caret-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="profil.html">Profil Sekolah</a></li>
+                <li><a href="visi-misi.html">Visi & Misi</a></li>
+                <li><a href="guru-tendik.html">Guru dan Tendik</a></li>
+              </ul>
+            </li>
+            <li><a href="akademik.html">Akademik</a></li>
+            <li><a href="pengumuman.html">Pengumuman</a></li>
+            <li><a href="prestasi.html" class="active">Prestasi</a></li>
+            <li><a href="spmb.html">SPMB</a></li>
+            <li><a href="index.html#kontak">Kontak</a></li>
+            
+            <li style="list-style: none; display: inline-flex; align-items: center; margin-left: 15px;">
+              <button id="darkModeToggle" style="background: none; border: none; color: var(--teks-utama); cursor: pointer; font-size: 1.2rem; padding: 5px; display: flex; align-items: center; justify-content: center;" title="Ubah Tema">
+                <i class="fa-solid fa-moon"></i>
+              </button>
+            </li>
+          </ul>
+
+          <div class="menu-toggle" id="mobileMenu">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ARSIP PRESTASI -->
+    <main class="achievement-container">
+      <div class="container">
+        
+        <div class="section-title" style="text-align: center;">
+          <h1 style="font-size: 2.5rem; color: var(--teks-utama); font-weight: 700;">Arsip Prestasi Siswa</h1>
+          <p style="color: var(--teks-redup); font-size: 1rem; margin-top: 5px;">Rekam jejak kebanggaan, kreativitas, dan talenta luar biasa siswa SDN Gedong 11 Pagi</p>
+        </div>
+
+        <!-- WADAH OTOMATIS PRESTASI -->
+        <div class="achievement-grid" id="wadah-prestasi">
+          <!-- Data diisi otomatis oleh JavaScript -->
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="kontak" class="footer" style="background-color: #0f172a; padding: 60px 0 20px 0; color: #cbd5e1;">
+      <style>
+        .footer-social-link {
+          display: grid; 
+          place-items: center; 
+          width: 40px; 
+          height: 40px; 
+          background-color: #1e293b; 
+          border-radius: 50%; 
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+        .instagram-hover:hover { background-color: #e1306c !important; transform: translateY(-3px); }
+        .instagram-hover:hover i { color: #ffffff !important; }
+        
+        .tiktok-hover:hover { background-color: #000000 !important; box-shadow: 0 0 10px rgba(255,255,255,0.5); transform: translateY(-3px); }
+        .tiktok-hover:hover i { color: #00f2fe !important; }
+        
+        .youtube-hover:hover { background-color: #ff0000 !important; transform: translateY(-3px); }
+        .youtube-hover:hover i { color: #ffffff !important; }
+      </style>
+
+      <div class="container">
+        <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-start; text-align: left;">
+
+          <!-- KOLOM 1 -->
+          <div style="flex: 1; min-width: 250px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 25px;">
+              <div style="width: 45px; height: 45px; background-color: #1e293b; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid #334155; flex-shrink: 0; overflow: hidden;">
+                <img src="assets/images/logo.png" alt="Logo SDN Gedong 11 Pagi" style="width: 100%; height: 100%; object-fit: contain; padding: 4px;">
+              </div>
+              <div>
+                <h4 style="font-size: 1.15rem; color: #ffffff; font-weight: 700; margin: 0; line-height: 1.2;">SDN Gedong 11 Pagi</h4>
+                <span style="font-size: 0.8rem; color: #94a3b8; display: block; margin-top: 2px;">NPSN: 20108996</span>
+              </div>
+            </div>
+
+            <h3 style="font-size: 1.5rem; color: #007bff; font-weight: 700; margin-bottom: 15px;">Social Media</h3>
+            
+            <p style="color: #cbd5e1; font-size: 1rem; line-height: 1.5; margin-bottom: 20px;">
+              Hubungi atau ikuti keseruan kegiatan belajar mengajar kami melalui platform media sosial resmi sekolah.
+            </p>
+
+            <div style="display: flex; gap: 12px;">
+              <a href="https://www.instagram.com/sdngedong11pagi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="footer-social-link instagram-hover">
+                <i class="fab fa-instagram" style="color: #e1306c; font-size: 1.1rem; transition: color 0.3s;"></i>
+              </a>
+              <a href="https://www.tiktok.com/@sdngedong11offici?is_from_webapp=1&sender_device=pc" class="footer-social-link tiktok-hover">
+                <i class="fab fa-tiktok" style="color: #ffffff; font-size: 1.1rem; transition: color 0.3s;"></i>
+              </a>
+              <a href="https://youtube.com/@sdn_gedong11channel85?si=f6ZG_akzDdHY008t" class="footer-social-link youtube-hover">
+                <i class="fab fa-youtube" style="color: #ff0000; font-size: 1.1rem; transition: color 0.3s;"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- KOLOM 2 -->
+          <div style="flex: 1; min-width: 200px;">
+            <h3 style="font-size: 1.5rem; color: #007bff; font-weight: 700; margin-bottom: 20px;">Tautan Langsung</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+              <li><a href="index.html#beranda" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Beranda</a></li>
+              <li><a href="profil.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Tentang Kami</a></li>
+              <li><a href="akademik.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Akademik</a></li>
+              <li><a href="pengumuman.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Pengumuman</a></li>
+              <li><a href="prestasi.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Prestasi</a></li>
+              <li><a href="spmb.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">SPMB</a></li>
+              <li><a href="index.html#kontak" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Kontak</a></li>
+            </ul>
+          </div>
+
+          <!-- KOLOM 3 -->
+          <div style="flex: 1; min-width: 280px;">
+            <h3 style="font-size: 1.5rem; color: #007bff; font-weight: 700; margin-bottom: 20px;">Kontak</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px;">
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5;">
+                <i class="fas fa-envelope" style="color: #007bff; margin-top: 4px;"></i>
+                <span>sd.gedong11@gmail.com</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5;">
+                <i class="fas fa-phone" style="color: #007bff; margin-top: 4px;"></i>
+                <span>021-7903894</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5;">
+                <i class="fas fa-map-marker-alt" style="color: #007bff; margin-top: 4px;"></i>
+                <div>
+                  <span>Jl. H. Taiman Barat II RT.05 RW.10 Kelurahan Gedong Kecamatan Pasar Rebo Kota Administrasi Jakarta Timur</span>
+                  <br>
+                  <a href="https://maps.app.goo.gl/ysCWEmixRhvcVdY39" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; color: #38bdf8; text-decoration: none; font-size: 0.85rem; margin-top: 6px; font-weight: 600;">
+                    <i class="fas fa-directions"></i> Lihat di Google Maps
+                  </a>
+                </div>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5; border-top: 1px solid #334155; padding-top: 12px;">
+                <i class="fas fa-clock" style="color: #007bff; margin-top: 4px;"></i>
+                <div>
+                  <span style="font-weight: 600; color: #ffffff; display: block; margin-bottom: 2px; font-size: 0.95rem;">Jam Pelayanan Administrasi:</span>
+                  <span style="font-size: 0.85rem; color: #94a3b8;">Senin - Jumat: 08.00 - 14.00 WIB<br>Sabtu &amp; Minggu: Libur</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="copyright" style="margin-top: 50px; border-top: 1px solid #334155; padding-top: 20px; text-align: center;">
+          <p>&copy; Copyright 2026 by <span>Admin</span>. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- SCRIPT KONTROL DATA -->
+    <script src="dist/js/script.js"></script>
+    <script>
+      const dataPrestasi = [
+        {
+          gambar: "assets/images/azzya.jpeg",
+          alt: "Juara Kriya FLS3N",
+          tingkat: "Tingkat Kecamatan",
+          tahun: "2026",
+          kategori: "Juara 1 Lomba Kriya FLS3N Kecamatan",
+          judul: "Festival Lomba Seni dan Sastra Siswa Nasional (FLS3N) 2026",
+          pemenang: ["AZZYA BINTANG RAMADAN"],
+          deskripsi: "Ananda Azzya Bintang Ramadan berhasil meraih Juara 1 FLS3N Tingkat Kecamatan Pasar Rebo dan melaju ke FLS3N Tingkat Kota Jakarta Timur 2."
+        },
+        {
+          gambar: "assets/images/tari.jpeg",
+          alt: "Juara Tari",
+          tingkat: "Antar Sekolah",
+          tahun: "2026",
+          kategori: "Juara 2 Seni Tari Tradisional",
+          judul: "CRENOVERS CUP 2026",
+          pemenang: [
+            "KEISYA AZHAIRRA ALFIANDO,",
+            "FYARA SAFFA ALSHAMEYZA &",
+            "TIARA NINDYA SHUFNA"
+          ],
+          deskripsi: "Perwakilan tim tari sekolah memukau para juri lewat keanggunan gerakan Tari Tradisional pada ajang Crenovers Cup 2026 di Sekolah NOAH."
+        },
+        {
+          gambar: "assets/images/cca.jpeg",
+          alt: "Juara Lomba CCA",
+          tingkat: "Tingkat Kota",
+          tahun: "2026",
+          kategori: "Juara Harapan III Lomba CCA",
+          judul: "Lomba Cerdas Cermat Al-Kitab 2026",
+          pemenang: [
+            "MANUELLA PUTRI ALEXA,",
+            "AARON KENWARD &",
+            "NOVIYANTI PUTRI TURNIP"
+          ],
+          deskripsi: "Tim Cerdas Cermat Al-Kitab sekolah menunjukkan wawasan kerohanian, ketepatan, dan kekompakan yang luar biasa dalam menjawab setiap pertanyaan pada ajang Lomba CCA tahun 2026."
+        }
+      ];
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const wadahPrestasi = document.getElementById("wadah-prestasi");
+        if (wadahPrestasi) {
+          wadahPrestasi.innerHTML = dataPrestasi.map(item => `
+            <div class="prestasi-card">
+              <div>
+                <div class="img-wrapper">
+                  <img src="${item.gambar}" alt="${item.alt}">
+                  <span style="position: absolute; bottom: 15px; left: 15px; background: rgba(30, 41, 59, 0.85); color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.75rem; font-weight: 500; backdrop-filter: blur(4px);">${item.tingkat}</span>
+                  <span style="position: absolute; top: 15px; right: 15px; background: #007bff; color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">${item.tahun}</span>
+                </div>
+                
+                <div style="padding: 20px;">
+                  <div style="color: #d97706; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; min-height: 24px; display: flex; align-items: center; gap: 6px;">
+                    <i class="fa-solid fa-trophy"></i> ${item.kategori}
+                  </div>
+                  
+                  <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--teks-utama); margin: 0 0 12px 0; line-height: 1.3; min-height: 58px;">
+                    ${item.judul}
+                  </h3>
+
+                  <div style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 15px; min-height: 65px; text-align: left;">
+                    <span style="font-size: 0.875rem; font-weight: 600; color: var(--teks-redup); display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+                      <i class="fa-solid fa-user-graduate" style="color: #007bff;"></i> Pemenang:
+                    </span>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.875rem; font-weight: 700; color: var(--teks-nama-pemenang); line-height: 1.4;">
+                      ${item.pemenang.map(nama => `<li>${nama}</li>`).join('')}
+                    </ul>
+                  </div>
+                  
+                  <p style="font-size: 0.9rem; line-height: 1.5; color: var(--teks-deskripsi); margin: 0;">
+                    ${item.deskripsi}
+                  </p>
+                </div>
+              </div>
+            </div>
+          `).join('');
+        }
+      });
+    </script>
+  </body>
+</html>

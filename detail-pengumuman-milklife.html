@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Pengumuman - SDN Gedong 11 Pagi</title>
+    <link rel="stylesheet" href="/dist/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <style>
+      .detail-container { padding: 120px 0 60px 0; min-height: 80vh; }
+      .btn-back { display: inline-flex; align-items: center; gap: 8px; color: #007bff; font-weight: 600; margin-bottom: 20px; }
+      .announcement-header { margin-bottom: 30px; border-bottom: 2px solid #f1f5f9; padding-bottom: 20px; }
+      .announcement-header h1 { font-size: 2.3rem; color: #1e293b; margin-bottom: 15px; line-height: 1.3; }
+      .announcement-badge { background-color: #007bff; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-right: 10px; }
+      .announcement-date { color: #64748b; font-size: 0.9rem; }
+      .announcement-body { color: #334155; font-size: 1rem; line-height: 1.8; }
+      .announcement-body p { margin-bottom: 15px; }
+      .announcement-body ul { margin: 15px 0 20px 20px; list-style-type: square; }
+      .announcement-body li { margin-bottom: 8px; }
+
+      /* ==========================================
+        PENGATURAN TEMA (CSS VARIABLES) NAVY DARK
+        ========================================== */
+      :root {
+        --bg-luar: #f8fafc;
+        --bg-surat: #ffffff;
+        --teks-utama: #0f172a;
+        --teks-deskripsi: #334155;
+        --teks-redup: #64748b;
+        --garis-border: #e2e8f0;
+        
+        --bg-badge-kategori: #e0f2fe;
+        --teks-badge-kategori: #0369a1;
+        --bg-memo-jadwal: #f8fafc;
+        --border-memo: #007bff;
+        
+        --bg-catatan-penting: #fffbeb;
+        --border-catatan-penting: #fef3c7;
+        --teks-catatan-penting: #92400e;
+        --ikon-catatan-penting: #d97706;
+        
+        --tombol-kembali: #007bff;
+      }
+
+      [data-theme="dark"] {
+        --bg-luar: #0f172a;       /* Menyesuaikan warna Navy Dark index.html */
+        --bg-surat: #1e293b;      /* Box putih bertransisi menjadi Card Slate yang kontras */
+        --teks-utama: #f8fafc;
+        --teks-deskripsi: #cbd5e1;
+        --teks-redup: #94a3b8;
+        --garis-border: #334155;
+        
+        --bg-badge-kategori: #1e3a8a;
+        --teks-badge-kategori: #93c5fd;
+        --bg-memo-jadwal: #0f172a;
+        --border-memo: #38bdf8;
+        
+        --bg-catatan-penting: #2d2010;
+        --border-catatan-penting: #452a0a;
+        --teks-catatan-penting: #fef08a;
+        --ikon-catatan-penting: #fbbf24;
+        
+        --tombol-kembali: #38bdf8;
+      }
+
+      /* Efek transisi perpindahan tema yang halus */
+      body, main, div, h1, h2, h3, p, span, a, i, section, table, td, tr, strong {
+        transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+      }
+
+      .main-wrapper {
+        background-color: var(--bg-luar);
+        padding: 120px 0 80px 0;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      .document-box {
+        background: var(--bg-surat); 
+        border: 1px solid var(--garis-border); 
+        border-radius: 16px; 
+        padding: clamp(20px, 5vw, 50px); 
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+      }
+    </style>
+  </head>
+ <body>
+  <!-- Taruh kode ini tepat di bawah tag <body> pada semua halaman -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
+   <!-- Menggunakan kelas pembungkus adaptif -->
+<div class="main-wrapper">
+  <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 20px; box-sizing: border-box;">
+    
+    <!-- Tombol Kembali Elegan -->
+    <a href="index.html#pengumuman" style="display: inline-flex; align-items: center; gap: 8px; color: var(--tombol-kembali); text-decoration: none; font-size: 0.95rem; font-weight: 600; margin-bottom: 30px; transition: all 0.2s;" onmouseover="this.style.transform='translateX(-4px)'" onmouseout="this.style.transform='translateX(0)'">
+      <i class="fa-solid fa-arrow-left"></i> Kembali ke Pengumuman
+    </a>
+
+    <!-- Box Utama Surat Edaran / Dokumen Resmi -->
+    <div class="document-box">
+      
+      <!-- Header Pengumuman -->
+      <div style="border-bottom: 2px dashed var(--garis-border); padding-bottom: 25px; margin-bottom: 35px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; align-items: center; margin-bottom: 15px;">
+          <span style="display: inline-block; background: var(--bg-badge-kategori); color: var(--teks-badge-kategori); padding: 4px 12px; border-radius: 20px; font-weight: 600; font-size: 0.8rem; text-transform: uppercase;">
+            Akademik
+          </span>
+          <span style="color: var(--teks-redup); font-size: 0.9rem;">
+            <i class="fa-solid fa-calendar-days" style="margin-right: 6px;"></i> Diperbarui pada: 15 Juni 2026
+          </span>
+        </div>
+        
+        <h1 style="font-size: clamp(1.6rem, 3.5vw, 2.3rem); color: var(--teks-utama); font-weight: 800; line-height: 1.3; margin: 0; letter-spacing: -0.5px;">
+          Jadwal Pelaksanaan Sinau Wisata Tahun Ajaran 2026/2027
+        </h1>
+      </div>
+      
+      <!-- Isi Dokumen Pengumuman -->
+      <div style="color: var(--teks-deskripsi); font-size: 1.05rem; line-height: 1.8;">
+        <p style="font-weight: 600; color: var(--teks-utama); margin-bottom: 20px;">
+          Yth. Bapak/Ibu Orang Tua / Wali Murid Kelas I s.d Kelas VI SDN Gedong 11 Pagi,
+        </p>
+        
+        <p style="text-align: justify; margin-bottom: 25px;">
+          Sehubungan dengan telah akan dilaksanakannya kegiatan Sinau Wisata di SDN Gedong 11 Pagi, dengan ini diberitahukan bahwa pelaksanaan Sinau Wisata akan dilaksanakan pada:
+        </p>
+        
+        <!-- KOTAK MEMO RINCIAN JADWAL (HIGHLIGHTED BOX) -->
+        <div style="background: var(--bg-memo-jadwal); border-left: 4px solid var(--border-memo); border-radius: 4px 12px 12px 4px; padding: 25px; margin: 30px 0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.01);">
+          <table style="width: 100%; border-collapse: collapse; font-size: 1rem;">
+            <tr style="vertical-align: top;">
+              <td style="width: 130px; font-weight: 700; color: var(--teks-utama); padding-bottom: 12px;">Hari / Tanggal</td>
+              <td style="width: 20px; color: var(--teks-redup); padding-bottom: 12px;">:</td>
+              <td style="color: var(--teks-deskripsi); padding-bottom: 12px;">Jumat, 10 September 2026</td>
+            </tr>
+            <tr style="vertical-align: top;">
+              <td style="font-weight: 700; color: var(--teks-utama); padding-bottom: 12px;">Waktu</td>
+              <td style="color: var(--teks-redup); padding-bottom: 12px;">:</td>
+              <td style="color: var(--teks-deskripsi); padding-bottom: 12px; line-height: 1.6;">
+                <span style="display: block; margin-bottom: 4px;"><strong style="color: var(--tombol-kembali);"></strong> Pukul 07.00 WIB - selesai</span>
+              </td>
+            </tr>
+            <tr style="vertical-align: top;">
+              <td style="font-weight: 700; color: var(--teks-utama);">Tempat</td>
+              <td style="color: var(--teks-redup);">:</td>
+              <td style="color: var(--var-teks-deskripsi, var(--teks-deskripsi));">
+                <li>1. Museum Nasional</li> 
+                <li>2. Masjid Istiqlal</li>
+                <li>3. Museum Kebangkitan Nasional</li>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Catatan Penting Berwarna Amber Ringan -->
+        <div style="background-color: var(--bg-catatan-penting); border: 1px solid var(--border-catatan-penting); border-radius: 8px; padding: 15px 20px; margin-bottom: 25px; display: flex; gap: 12px; align-items: flex-start;">
+          <i class="fa-solid fa-circle-exclamation" style="color: var(--ikon-catatan-penting); font-size: 1.2rem; margin-top: 3px;"></i>
+          <p style="font-size: 0.95rem; color: var(--teks-catatan-penting); margin: 0; text-align: justify;">
+            <strong>Penting:</strong> Mohon untuk Orang Tua/Wali Murid agar menyiapkan perbekalan bagi seluruh putra/putrinya, agar kegiatan dapat berjalan dengan optimal.
+          </p>
+        </div>
+
+        <p style="text-align: justify; margin-bottom: 40px;">
+          Demikian informasi ini kami sampaikan, atas perhatian dan kerja sama yang baik kami ucapkan terima kasih.
+        </p>
+        
+        <!-- Bagian Tanda Tangan Hormat Kami -->
+        <div style="display: flex; justify-content: flex-end; text-align: center;">
+          <div style="width: 250px;">
+            <p style="margin-bottom: 60px; color: var(--teks-deskripsi);">Hormat kami,</p>
+            <strong style="color: var(--teks-utama); display: block; border-bottom: 1px solid var(--teks-utama); padding-bottom: 4px; font-size: 1.1rem;">Kepala Sekolah</strong>
+            <span style="font-size: 0.9rem; color: var(--teks-redup); display: block; margin-top: 4px;">SDN Gedong 11 Pagi</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  </body>
+</html>

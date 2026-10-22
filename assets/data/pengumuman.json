@@ -1,0 +1,18 @@
+[
+  {
+    "id": "PENG-001",
+    "judul": "Pelaksanaan Asesmen Nasional Berbasis Komputer (ANBK)",
+    "tanggal": "2026-09-15",
+    "kategori": "Akademik",
+    "ringkasan": "Himbauan pelaksanaan ANBK bagi siswa kelas 5 beserta jadwal gladi bersih.",
+    "filePdf": "assets/docs/pengumuman-anbk-2026.pdf"
+  },
+  {
+    "id": "PENG-002",
+    "judul": "Libur Evaluasi Semester dan Pembagian Rapor",
+    "tanggal": "2026-12-20",
+    "kategori": "Kegiatan",
+    "ringkasan": "Informasi jadwal penerimaan rapor semester ganjil dan agenda libur sekolah.",
+    "filePdf": ""
+  }
+]

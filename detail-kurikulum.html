@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Program Kurikulum Merdeka</title>
+    <link rel="stylesheet" href="/dist/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+ <style>
+.detail-container { padding: 120px 0 60px 0; min-height: 80vh; }
+.btn-back { display: inline-flex; align-items: center; gap: 8px; color: #007bff; font-weight: 600; margin-bottom: 20px; text-decoration: none; }
+.detail-content h1 { font-size: 2.5rem; color: #1e293b; margin-bottom: 20px; }
+.detail-meta { color: #64748b; font-size: 0.9rem; margin-bottom: 30px; }
+.detail-img { width: 100%; max-height: 450px; object-fit: cover; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.detail-text p { color: #334155; font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px; text-align: justify; }
+
+/* ==========================================
+   1. PENGATURAN TEMA (VARIABEL CSS)
+   ========================================== */
+:root {
+  --bg-luar: #f8fafc;
+  --bg-utama: #ffffff;
+  --teks-utama: #0f172a;
+  --teks-deskripsi: #334155;
+  --teks-redup: #64748b;
+  --garis-border: #e2e8f0;
+  --bg-badge: #e0f2fe;
+  --teks-badge: #0369a1;
+  --bg-blockquote: #f1f5f9;
+  --tombol-kembali: #007bff;
+}
+
+[data-theme="dark"] {
+  --bg-luar: #0f172a;       /* Disamakan dengan warna Navy Dark index.html */
+  --bg-utama: #1e293b;      /* Warna kotak/card yang sedikit lebih terang dari background */
+  --teks-utama: #f8fafc;
+  --teks-deskripsi: #cbd5e1;
+  --teks-konten-card: #94a3b8;
+  --teks-redup: #94a3b8;
+  --garis-border: #334155;  /* Warna border yang lebih halus di latar gelap */
+  
+  --bg-badge: #3a2a14;
+  --teks-badge: #fbbf24;
+  
+  --bg-blockquote: #1e293b;
+  --tombol-kembali: #38bdf8;
+  
+  /* Untuk file pembiasaan & ekskul jika ada */
+  --bg-list-rundown: #1e293b;
+  --bg-rumpun-1: #1e293b;
+  --teks-rumpun-1: #38bdf8;
+  --bg-rumpun-2: #3a1414;
+  --teks-rumpun-2: #f87171;
+  --bg-rumpun-3: #143a26;
+  --teks-rumpun-3: #4ade80;
+}
+
+/* Efek transisi perpindahan warna agar halus di mata */
+body, main, div, h1, h2, h3, p, span, a, i, section, li, ul {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+/* ==========================================
+   2. KELAS UTAMA UNTUK ELEMEN STRUKTUR
+   ========================================== */
+.main-wrapper {
+  background-color: var(--bg-luar);
+  padding: 40px 0 80px 0;
+  font-family: 'Poppins', sans-serif;
+}
+.sidebar-box {
+  flex: 1;
+  min-width: 280px;
+  background-color: var(--bg-utama);
+  border: 1px solid var(--var-garis, var(--garis-border));
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  box-sizing: border-box;
+}
+
+ </style>
+  </head>
+  
+  <body>
+    <!-- Taruh kode ini tepat di bawah tag <body> pada semua halaman -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
+  <!-- Menggunakan kelas .main-wrapper dari variabel CSS baru -->
+<div class="main-wrapper">
+  <div class="container" style="max-width: 1140px; margin: 0 auto; padding: 0 20px; box-sizing: border-box;">
+    
+    <!-- Tombol Kembali Elegan (Warna Dinamis) -->
+    <a href="index.html#akademik" style="display: inline-flex; align-items: center; gap: 8px; color: var(--tombol-kembali); text-decoration: none; font-size: 0.95rem; font-weight: 600; margin-bottom: 30px; transition: all 0.2s;" onmouseover="this.style.transform='translateX(-4px)'" onmouseout="this.style.transform='translateX(0)'">
+      <i class="fa-solid fa-arrow-left"></i> Kembali ke Akademik
+    </a>
+
+    <!-- Judul Artikel Besar & Berkarakter -->
+    <h1 style="font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--teks-utama); font-weight: 800; line-height: 1.25; margin-bottom: 20px; letter-spacing: -0.5px;">
+      SDN Gedong 11 Pagi Jakarta Timur Siap Mencetak Generasi Unggul Melalui Implementasi Kurikulum Merdeka
+    </h1>
+
+    <!-- Meta Informasi Artikel -->
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; padding-bottom: 25px; border-bottom: 1px solid var(--garis-border); margin-bottom: 35px; color: var(--teks-redup); font-size: 0.9rem;">
+      <span style="display: inline-block; background: var(--bg-badge); color: var(--teks-badge); padding: 4px 12px; border-radius: 4px; font-weight: 600; font-size: 0.8rem; text-transform: uppercase;">
+        <i class="fa-solid fa-bookmark" style="margin-right: 4px;"></i> Program Utama
+      </span>
+      <span><i class="fa-solid fa-calendar-days" style="margin-right: 6px;"></i> 11 Juli 2026</span>
+      <span><i class="fa-solid fa-user" style="margin-right: 6px;"></i> Humas Sekolah</span>
+    </div>
+
+    <!-- Foto Utama -->
+    <div style="width: 100%; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(15,23,42,0.08); margin-bottom: 40px;">
+      <img src="assets/images/kurmer1.jpeg" alt="Implementasi Kurikulum Merdeka" style="width: 100%; height: auto; max-height: 500px; object-fit: cover; display: block;">
+    </div>
+
+    <!-- Grid Konten Komposisi 2 Kolom -->
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
+      
+      <!-- KOLOM KIRI: TEKS ARTIKEL -->
+      <div style="flex: 2; min-width: 320px;">
+        <p style="color: var(--teks-deskripsi); font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px; text-align: justify;">
+          <span style="float: left; font-size: 3.5rem; font-weight: 800; line-height: 0.8; margin-right: 10px; color: var(--tombol-kembali); font-family: serif;">J</span>akarta Timur – SDN Gedong 11 Pagi terus berkomitmen memberikan layanan pendidikan terbaik bagi peserta didik dengan menerapkan Kurikulum Merdeka sebagai bagian dari transformasi pembelajaran yang berpusat pada kebutuhan dan potensi setiap anak. Penerapan Kurikulum Merdeka di SDN Gedong 11 Pagi bukan sekadar mengikuti kebijakan pendidikan nasional, tetapi menjadi langkah nyata sekolah dalam menciptakan lingkungan belajar yang lebih menyenangkan, fleksibel, dan relevan dengan tantangan masa depan. Kurikulum Merdeka dirancang untuk memberikan ruang kepada peserta didik agar dapat berkembang sesuai minat, bakat, serta tahap perkembangannya, dengan tetap memperkuat karakter dan kompetensi dasar yang dibutuhkan di abad ke-21.
+        </p>
+
+        <!-- Kutipan Tengah (Blockquote Highlight) -->
+        <div style="border-left: 4px solid var(--tombol-kembali); background-color: var(--bg-blockquote); padding: 20px 25px; margin: 35px 0; border-radius: 0 12px 12px 0;">
+          <p style="font-style: italic; color: var(--teks-utama); font-size: 1.15rem; line-height: 1.6; font-weight: 500; margin: 0;">
+            "Melalui Kurikulum Merdeka, proses pembelajaran tidak lagi berfokus pada banyaknya materi yang harus diselesaikan, melainkan pada pemahaman yang mendalam terhadap konsep-konsep esensial."
+          </p>
+        </div>
+
+        <p style="color: var(--teks-deskripsi); font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px; text-align: justify;">
+          Pendekatan ini memberikan kesempatan kepada guru untuk lebih memperhatikan kebutuhan belajar setiap peserta didik sehingga pembelajaran menjadi lebih bermakna dan efektif. Salah satu keunggulan yang diterapkan di SDN Gedong 11 Pagi adalah penguatan Profil Pelajar Pancasila, yaitu pembentukan peserta didik yang beriman dan bertakwa kepada Tuhan Yang Maha Esa, bergotong royong, mandiri, bernalar kritis, kreatif, serta mampu hidup dalam kebhinekaan global. Nilai-nilai tersebut diintegrasikan ke dalam kegiatan pembelajaran sehari-hari melalui berbagai proyek yang menarik dan aplikatif bagi siswa.
+        </p>
+      </div>
+
+      <!-- KOLOM KANAN: SIDEBAR SOROTAN (Menggunakan Kelas Baru) -->
+      <div class="sidebar-box">
+        <h3 style="font-size: 1.2rem; color: var(--teks-utama); font-weight: 700; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--tombol-kembali); display: flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-star" style="color: #ff9800;"></i> Fokus Utama P5
+        </h3>
+        
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px;">
+          <li style="display: flex; gap: 10px; align-items: flex-start;">
+            <i class="fa-solid fa-circle-check" style="color: #28a745; margin-top: 5px;"></i>
+            <div>
+              <strong style="color: var(--teks-utama); display: block; font-size: 0.95rem;">Karakter Akhlak Mulia</strong>
+              <span style="font-size: 0.85rem; color: var(--teks-redup);">Menanamkan nilai spiritualitas tinggi sejak dini.</span>
+            </div>
+          </li>
+          <li style="display: flex; gap: 10px; align-items: flex-start;">
+            <i class="fa-solid fa-circle-check" style="color: #28a745; margin-top: 5px;"></i>
+            <div>
+              <strong style="color: var(--teks-utama); display: block; font-size: 0.95rem;">Kreativitas &amp; Mandiri</strong>
+              <span style="font-size: 0.85rem; color: var(--teks-redup);">Eksplorasi bakat tanpa batas melalui aksi seni dan prakarya.</span>
+            </div>
+          </li>
+          <li style="display: flex; gap: 10px; align-items: flex-start;">
+            <i class="fa-solid fa-circle-check" style="color: #28a745; margin-top: 5px;"></i>
+            <div>
+              <strong style="color: var(--teks-utama); display: block; font-size: 0.95rem;">Bernalar Kritis</strong>
+              <span style="font-size: 0.85rem; color: var(--teks-redup);">Membiasakan siswa aktif bertanya dan memecahkan masalah dasar.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+    </body>
+</html>

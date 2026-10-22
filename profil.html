@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil Sekolah - SDN Gedong 11 Pagi</title>
+    <link rel="shortcut icon" href="/assets/icon/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/dist/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    
+    <style>
+      /* Menentukan warna default saat halaman dibuka (Light Mode) */
+:root {
+  --bg-utama: #f8fafc;
+  --bg-kartu: #ffffff;
+  --teks-utama: #0f172a;
+  --teks-deskripsi: #334155;
+  --teks-redup: #64748b;
+  --garis-border: #e2e8f0;
+  --bg-navbar: #ffffff;
+  --bg-footer: #ffffff;      /* ◄ TAMBAHKAN INI: Footer jadi putih saat mode terang */
+  --teks-footer: #334155;    /* ◄ TAMBAHKAN INI: Tulisan footer jadi gelap */
+}
+
+/* Mengubah isi warna secara otomatis saat Dark Mode aktif */
+[data-theme="dark"] {
+  --bg-utama: #0f172a;
+  --bg-kartu: #1e293b;
+  --teks-utama: #f8fafc;
+  --teks-deskripsi: #cbd5e1;
+  --teks-redup: #94a3b8;
+  --garis-border: #334155;
+  --bg-navbar: #1e293b;
+  --bg-footer: #0f172a;      /* ◄ TAMBAHKAN INI: Footer kembali gelap saat mode malam */
+  --teks-footer: #cbd5e1;    /* ◄ TAMBAHKAN INI: Tulisan footer kembali putih soft */
+}
+      /* Menentukan warna default saat halaman dibuka (Light Mode) */
+      :root {
+        --bg-utama: #f8fafc;
+        --bg-kartu: #ffffff;
+        --teks-utama: #0f172a;
+        --teks-deskripsi: #334155;
+        --teks-redup: #64748b;
+        --garis-border: #e2e8f0;
+        --bg-navbar: #ffffff;
+      }
+
+      /* Mengubah isi warna secara otomatis saat Dark Mode aktif */
+      [data-theme="dark"] {
+        --bg-utama: #0f172a;       /* Berubah jadi abu-abu sangat gelap */
+        --bg-kartu: #1e293b;       /* Kartu berubah jadi abu-abu pekat */
+        --teks-utama: #f8fafc;     /* Tulisan judul jadi putih cerah */
+        --teks-deskripsi: #cbd5e1; /* Tulisan artikel jadi putih soft */
+        --teks-redup: #94a3b8;     /* Keterangan kecil jadi abu-abu terang */
+        --garis-border: #334155;   /* Garis pembatas jadi lebih gelap */
+        --bg-navbar: #1e293b;
+      }
+      
+      /* Efek transisi agar saat perpindahan warna tidak kaget/berkedip kasar */
+      body, main, div, h1, h2, h3, p, span, nav, a, button {
+        transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+      }
+
+      /* Sinkronisasi warna komponen navbar bawaan agar adaptif */
+      .navbar {
+        background-color: var(--bg-navbar) !important;
+        border-bottom: 1px solid var(--garis-border);
+      }
+      .navbar-box .menu li a {
+        color: var(--teks-utama) !important;
+      }
+      .dropdown-menu {
+        background-color: var(--bg-kartu) !important;
+        border: 1px solid var(--garis-border);
+      }
+      .dropdown-menu li a {
+        color: var(--teks-utama) !important;
+      }
+      .menu-toggle i {
+        color: var(--teks-utama) !important;
+      }
+    </style>
+  </head>
+  <body>
+  <!-- Taruh kode ini tepat di bawah tag <body> pada semua halaman -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
+   <!-- ================= NAVBAR ================= -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-box">
+          <div class="logo" style="display: flex; align-items: center; gap: 12px;">
+            <img src="assets/images/logo.png" alt="Logo SDN Gedong 11 Pagi" style="height: 45px; width: auto; object-fit: contain;">
+            <h1 style="font-size: 1.25rem; font-weight: 700; color: var(--teks-utama); margin: 0; line-height: 1.2;">
+              SDN Gedong 11 Pagi
+            </h1>
+          </div>
+
+           <ul class="menu" id="navMenu">
+            <li><a href="index.html#beranda">Beranda</a></li>
+            <li class="dropdown">
+              <a href="#" class="active">Tentang Kami <i class="fa-solid fa-caret-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="profil.html">Profil Sekolah</a></li>
+                <li><a href="visi-misi.html">Visi & Misi</a></li>
+                <li><a href="guru-tendik.html">Guru dan Tendik</a></li>
+              </ul>
+            </li>
+            <li><a href="akademik.html">Akademik</a></li>
+            <li><a href="pengumuman.html">Pengumuman</a></li>
+            <li><a href="prestasi.html">Prestasi</a></li>
+            <li><a href="spmb.html">SPMB</a></li>
+            <li><a href="index.html#kontak">Kontak</a></li>
+            
+            <!-- Tombol Sakelar Tema -->
+            <li style="list-style: none; display: inline-flex; align-items: center; margin-left: 15px;">
+              <button id="darkModeToggle" style="background: none; border: none; color: var(--teks-utama); cursor: pointer; font-size: 1.2rem; padding: 5px; display: flex; align-items: center; justify-content: center;" title="Ubah Tema">
+                <i class="fa-solid fa-moon"></i>
+              </button>
+            </li>
+          </ul>
+
+          <div class="menu-toggle" id="mobileMenu">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ================= CONTEXTUAL MAIN PROFILE TUNING (DARK MODE READY) ================= -->
+    <main style="padding: 120px 0 60px 0; background-color: var(--bg-utama); font-family: 'Poppins', sans-serif;">
+      <div class="container" style="max-width: 1140px; margin: 0 auto; padding: 0 20px; box-sizing: border-box;">
+        
+        <!-- Judul Banner Halaman -->
+        <div style="text-align: center; margin-bottom: 50px;">
+          <h1 style="font-size: clamp(2rem, 4vw, 2.8rem); color: var(--teks-utama); font-weight: 800; margin-bottom: 10px;">Profil Sekolah</h1>
+          <div style="width: 60px; height: 4px; background-color: #007bff; margin: 0 auto; border-radius: 2px;"></div>
+        </div>
+        
+        <!-- Grid Konten Utama -->
+        <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
+          
+          <!-- KOLOM KIRI: DESKRIPSI & SEJARAH -->
+          <div style="flex: 2; min-width: 320px;">
+            
+            <p style="font-size: 1.15rem; line-height: 1.8; color: var(--teks-deskripsi); text-align: justify; margin-bottom: 30px;">
+              <span style="float: left; font-size: 3.5rem; font-weight: 800; line-height: 0.8; margin-right: 10px; color: #007bff; font-family: serif;">S</span>SDN Gedong 11 Pagi merupakan satuan pendidikan dasar negeri di Kelurahan Gedong, Kecamatan Pasar Rebo, Jakarta Timur, yang terus berkembang dalam menghadirkan pendidikan yang bermutu, berkarakter, dan relevan dengan kebutuhan peserta didik. Dengan akreditasi A serta dukungan pendidik dan tenaga kependidikan yang kompeten, sekolah berkomitmen menciptakan lingkungan belajar yang positif, aktif, dan mendorong peserta didik untuk terus berkembang.
+            </p>
+            
+            <h2 style="color: var(--teks-utama); margin: 40px 0 20px 0; font-size: 1.6rem; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+              <i class="fa-solid fa-clock-rotate-left" style="color: #007bff; font-size: 1.3rem;"></i> Sejarah Singkat
+            </h2>
+            
+            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--teks-redup); text-align: justify; margin-bottom: 20px;">
+              SDN Gedong 11 Pagi disahkan secara resmi melalui Keputusan Gubernur Nomor 4046 Tahun 1984 tentang Pengesahan Sekolah Dasar Negeri Pemerintah Provinsi DKI Jakarta.
+            </p>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--teks-redup); text-align: justify; margin-bottom: 20px;">
+              Sejak berdiri sebagai bagian dari penyelenggaraan pendidikan dasar di Provinsi DKI Jakarta, SDN Gedong 11 Pagi terus berkembang dalam memberikan layanan pendidikan kepada masyarakat. Dalam penyelenggaraan pendidikannya, sekolah berkomitmen menciptakan lingkungan belajar yang mendukung perkembangan peserta didik secara utuh, baik dalam aspek keimanan dan akhlak, prestasi, karakter, kemampuan berpikir kritis dan kreatif, kemandirian, kolaborasi, komunikasi, maupun kepedulian terhadap lingkungan.
+            </p>
+
+            <!-- Kutipan Penguat Visi -->
+            <div style="background-color: var(--bg-kartu); border: 1px solid var(--garis-border); border-left: 4px solid #007bff; padding: 20px; border-radius: 4px 12px 12px 4px; margin: 35px 0;">
+              <p style="font-style: italic; color: var(--teks-utama); font-size: 1.05rem; margin: 0; line-height: 1.6;">
+                “Pendidikan bukan hanya tentang mencerdaskan pikiran, tetapi juga membentuk karakter, menumbuhkan kepedulian, dan mempersiapkan generasi yang berakhlak mulia.”
+              </p>
+            </div>
+
+          </div>
+
+          <!-- KOLOM KANAN: KARTU IDENTITAS RESMI (SIDEBAR STATS) -->
+          <div style="flex: 1; min-width: 280px; background-color: var(--bg-kartu); border: 1px solid var(--garis-border); border-radius: 16px; padding: 25px; box-shadow: 0 4px 20px rgba(15,23,42,0.03); box-sizing: border-box; position: sticky; top: 20px;">
+            <h3 style="font-size: 1.15rem; color: var(--teks-utama); font-weight: 700; margin: 0 0 20px 0; padding-bottom: 10px; border-bottom: 2px solid #007bff; text-transform: uppercase; letter-spacing: 0.5px;">
+              Status Sekolah
+            </h3>
+            
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--garis-border); padding-bottom: 8px;">
+                <span style="color: var(--teks-redup); font-size: 0.9rem;">Akreditasi</span>
+                <span style="background: #dcfce7; color: #15803d; font-weight: 700; font-size: 0.85rem; padding: 2px 10px; border-radius: 4px;">A (Unggul)</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--garis-border); padding-bottom: 8px;">
+                <span style="color: var(--teks-redup); font-size: 0.9rem;">NPSN</span>
+                <span style="color: var(--teks-utama); font-weight: 600; font-size: 0.9rem;">20108996</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--garis-border); padding-bottom: 8px;">
+                <span style="color: var(--teks-redup); font-size: 0.9rem;">Status</span>
+                <span style="color: var(--teks-utama); font-weight: 600; font-size: 0.9rem;">Negeri</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: var(--teks-redup); font-size: 0.9rem;">Kurikulum</span>
+                <span style="color: var(--teks-utama); font-weight: 600; font-size: 0.9rem;">Kurikulum Merdeka</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ================= FASILITAS SEKOLAH ================= -->
+        <div style="margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--garis-border);">
+          <h2 style="font-size: 1.8rem; color: var(--teks-utama); margin-bottom: 10px; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-building" style="color: #007bff; font-size: 1.4rem;"></i> Fasilitas Utama Sekolah
+          </h2>
+          <p style="color: var(--teks-redup); font-size: 0.95rem; margin-bottom: 30px;">Sarana prasarana yang mendukung kenyamanan proses belajar mengajar guru.</p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+            
+            <!-- Fasilitas 1 -->
+            <div style="background: var(--bg-kartu); border-radius: 12px; overflow: hidden; border: 1px solid var(--garis-border); transition: transform 0.2s;">
+              <div style="width: 100%; height: 190px; overflow: hidden;">
+                <img src="assets/images/fasilitas-kelas.jpg" alt="Ruang Kelas" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div style="padding: 20px; text-align: left;">
+                <h3 style="font-size: 1.1rem; color: var(--teks-utama); margin: 0 0 8px 0; font-weight: 700;">Ruang Kelas Nyaman</h3>
+                <p style="color: var(--teks-redup); font-size: 0.88rem; line-height: 1.5; margin: 0;">Ruang kelas yang nyaman dan bersih, mendukung kegiatan belajar mengajar yang menyenangkan</p>
+              </div>
+            </div>
+
+            <!-- Fasilitas 2 -->
+            <div style="background: var(--bg-kartu); border-radius: 12px; overflow: hidden; border: 1px solid var(--garis-border); transition: transform 0.2s;">
+              <div style="width: 100%; height: 190px; overflow: hidden;">
+                <img src="assets/images/fasilitas-lab.jpg" alt="Taman Literasi" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div style="padding: 20px; text-align: left;">
+                <h3 style="font-size: 1.1rem; color: var(--teks-utama); margin: 0 0 8px 0; font-weight: 700;">Taman Literasi</h3>
+                <p style="color: var(--teks-redup); font-size: 0.88rem; line-height: 1.5; margin: 0;">Fasilitas taman memberikan ruang bagi anak-anak untuk bermain aktif di lingkungan yang asri.</p>
+              </div>
+            </div>
+
+            <!-- Fasilitas 3 -->
+            <div style="background: var(--bg-kartu); border-radius: 12px; overflow: hidden; border: 1px solid var(--garis-border); transition: transform 0.2s;">
+              <div style="width: 100%; height: 190px; overflow: hidden;">
+                <img src="assets/images/fasilitas-perpus.jpg" alt="Kantin" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div style="padding: 20px; text-align: left;">
+                <h3 style="font-size: 1.1rem; color: var(--teks-utama); margin: 0 0 8px 0; font-weight: 700;">Kantin</h3>
+                <p style="color: var(--teks-redup); font-size: 0.88rem; line-height: 1.5; margin: 0;">Kantin menyediakan makanan dan minuman yang bersih, sehat, dan bergizi bagi siswa.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= DOKUMENTASI & GALERI VIDEO ================= -->
+        <div style="margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--garis-border);">
+          <h2 style="font-size: 1.8rem; color: var(--teks-utama); margin-bottom: 10px; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-video" style="color: #007bff; font-size: 1.4rem;"></i> Dokumentasi Video Kegiatan
+          </h2>
+          <p style="color: var(--teks-redup); font-size: 0.95rem; margin-bottom: 30px;">Saksikan rangkuman kegiatan dinamis dan visualisasi profil sekolah kami.</p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+            
+            <!-- Video Lokal -->
+            <div style="background: var(--bg-kartu); border-radius: 12px; overflow: hidden; border: 1px solid var(--garis-border);">
+              <div style="width: 100%; aspect-ratio: 16/9; background-color: #000;">
+                <video controls style="width: 100%; height: 100%; object-fit: cover;">
+                  <source src="assets/videos/kegiatan-sekolah.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div style="padding: 20px;">
+                <h3 style="font-size: 1.1rem; color: var(--teks-utama); margin: 0 0 6px 0; font-weight: 700;">Deklarasi &amp; Kegiatan Sekolah</h3>
+                <p style="color: var(--teks-redup); font-size: 0.85rem; line-height: 1.4; margin: 0;">Dokumentasi langsung rangkaian acara formal sekolah.</p>
+              </div>
+            </div>
+
+            <!-- Video YouTube -->
+            <div style="background: var(--bg-kartu); border-radius: 12px; overflow: hidden; border: 1px solid var(--garis-border);">
+              <div style="width: 100%; aspect-ratio: 16/9;">
+                <iframe style="width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/o0hjiSFyUl0" title="YouTube video player" allowfullscreen></iframe>
+              </div>
+              <div style="padding: 20px;">
+                <h3 style="font-size: 1.1rem; color: var(--teks-utama); margin: 0 0 6px 0; font-weight: 700;">Urban Farming &amp; Panen Raya</h3>
+                <p style="color: var(--teks-redup); font-size: 0.85rem; line-height: 1.4; margin: 0;">Keseruan kolaborasi murid dalam merayakan masa panen hijau.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer id="kontak" class="footer" style="background-color: #0f172a; padding: 60px 0 20px 0; color: #cbd5e1;">
+      <style>
+        .footer-social-link {
+          display: grid; 
+          place-items: center; 
+          width: 40px; 
+          height: 40px; 
+          background-color: #1e293b; 
+          border-radius: 50%; 
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+        .instagram-hover:hover { background-color: #e1306c !important; transform: translateY(-3px); }
+        .instagram-hover:hover i { color: #ffffff !important; }
+        .tiktok-hover:hover { background-color: #000000 !important; box-shadow: 0 0 10px rgba(255,255,255,0.5); transform: translateY(-3px); }
+        .tiktok-hover:hover i { color: #00f2fe !important; }
+        .youtube-hover:hover { background-color: #ff0000 !important; transform: translateY(-3px); }
+        .youtube-hover:hover i { color: #ffffff !important; }
+      </style>
+
+      <div class="container">
+        <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-start; text-align: left;">
+
+          <!-- KOLOM 1 -->
+          <div style="flex: 1; min-width: 250px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 25px;">
+              <div style="width: 45px; height: 45px; background-color: #1e293b; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid #334155; flex-shrink: 0; overflow: hidden;">
+                <img src="assets/images/logo.png" alt="Logo SDN Gedong 11 Pagi" style="width: 100%; height: 100%; object-fit: contain; padding: 4px;">
+              </div>
+              <div>
+                <h4 style="font-size: 1.15rem; color: #ffffff; font-weight: 700; margin: 0; line-height: 1.2;">SDN Gedong 11 Pagi</h4>
+                <span style="font-size: 0.8rem; color: #94a3b8; display: block; margin-top: 2px;">NPSN: 20108996</span>
+              </div>
+            </div>
+
+            <h3 style="font-size: 1.5rem; color: #007bff; font-weight: 700; margin-bottom: 15px;">Social Media</h3>
+            <p style="color: #cbd5e1; font-size: 1rem; line-height: 1.5; margin-bottom: 20px;">
+              Hubungi atau ikuti keseruan kegiatan belajar mengajar kami melalui platform media sosial resmi sekolah.
+            </p>
+
+            <div style="display: flex; gap: 12px;">
+              <a href="https://www.instagram.com/sdngedong11pagi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="footer-social-link instagram-hover">
+                <i class="fab fa-instagram" style="color: #e1306c; font-size: 1.1rem;"></i>
+              </a>
+              <a href="https://www.tiktok.com/@sdngedong11offici?is_from_webapp=1&sender_device=pc" class="footer-social-link tiktok-hover">
+                <i class="fab fa-tiktok" style="color: #ffffff; font-size: 1.1rem;"></i>
+              </a>
+              <a href="https://youtube.com/@sdn_gedong11channel85?si=f6ZG_akzDdHY008t" class="footer-social-link youtube-hover">
+                <i class="fab fa-youtube" style="color: #ff0000; font-size: 1.1rem;"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- KOLOM 2 -->
+          <div style="flex: 1; min-width: 200px;">
+            <h3 style="font-size: 1.5rem; color: #007bff; font-weight: 700; margin-bottom: 20px;">Tautan Langsung</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+              <li><a href="#beranda" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Beranda</a></li>
+              <li><a href="profil.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Tentang Kami</a></li>
+              <li><a href="akademik.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Akademik</a></li>
+              <li><a href="pengumuman.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Pengumuman</a></li>
+              <li><a href="prestasi.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Prestasi</a></li>
+              <li><a href="spmb.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">SPMB</a></li>
+              <li><a href="#kontak" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- KOLOM 3 -->
+          <div style="flex: 1; min-width: 280px;">
+            <h3 style="font-size: 1.5rem; color: #007bff; font-weight: 700; margin-bottom: 20px;">Kontak</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px;">
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5;">
+                <i class="fas fa-envelope" style="color: #007bff; margin-top: 4px;"></i>
+                <span>sd.gedong11@gmail.com</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5;">
+                <i class="fas fa-phone" style="color: #007bff; margin-top: 4px;"></i>
+                <span>021-7903894</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5;">
+                <i class="fas fa-map-marker-alt" style="color: #007bff; margin-top: 4px;"></i>
+                <div>
+                  <span>Jl. H. Taiman Barat II RT.05 RW.10 Kelurahan Gedong Kecamatan Pasar Rebo Kota Administrasi Jakarta Timur</span>
+                  <br>
+                  <a href="https://maps.app.goo.gl/ysCWEmixRhvcVdY39" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; color: #38bdf8; text-decoration: none; font-size: 0.85rem; margin-top: 6px; font-weight: 600;">
+                    <i class="fas fa-directions"></i> Lihat di Google Maps
+                  </a>
+                </div>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5; border-top: 1px solid #334155; padding-top: 12px;">
+                <i class="fas fa-clock" style="color: #007bff; margin-top: 4px;"></i>
+                <div>
+                  <span style="font-weight: 600; color: #ffffff; display: block; margin-bottom: 2px; font-size: 0.95rem;">Jam Pelayanan Administrasi:</span>
+                  <span style="font-size: 0.85rem; color: #94a3b8;">Senin - Jumat: 08.00 - 14.00 WIB<br>Sabtu &amp; Minggu: Libur</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="copyright" style="margin-top: 50px; border-top: 1px solid #334155; padding-top: 20px; text-align: center;">
+          <p>&copy; Copyright 2026 by <span>Admin</span>. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT LOGIC FOR DARK MODE ================= -->
+    <script>
+      const toggleButton = document.getElementById('darkModeToggle');
+      const toggleIcon = toggleButton.querySelector('i');
+      
+      // 1. Cek pilihan tema tersimpan di browser
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggleIcon.classList.replace('fa-moon', 'fa-sun');
+      }
+
+      // 2. Aksi interaksi ketika tombol sakelar diklik
+      toggleButton.addEventListener('click', () => {
+        let currentTheme = 'light';
+        
+        if (document.documentElement.getAttribute('data-theme') !== 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          toggleIcon.classList.replace('fa-moon', 'fa-sun');
+          currentTheme = 'dark';
+        } else {
+          document.documentElement.removeAttribute('data-theme');
+          toggleIcon.classList.replace('fa-sun', 'fa-moon');
+        }
+        
+        // Simpan status tema saat ini agar tidak hilang saat refresh
+        localStorage.setItem('theme', currentTheme);
+      });
+    </script>
+  </body>
+</html>

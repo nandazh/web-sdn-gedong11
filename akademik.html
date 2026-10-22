@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akademik - SDN Gedong 11 Pagi</title>
+
+    <link rel="shortcut icon" href="assets/icon/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="dist/css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  </head>
+  <body>
+    <script>
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    </script>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-box">
+          <div class="logo" style="display: flex; align-items: center; gap: 12px;">
+            <img src="assets/images/logo.png" alt="Logo SDN Gedong 11 Pagi" style="height: 45px; width: auto; object-fit: contain;">
+            <h1 style="font-size: 1.25rem; font-weight: 700; color: var(--teks-utama); margin: 0; line-height: 1.2;">
+              SDN Gedong 11 Pagi
+            </h1>
+          </div>
+
+          <ul class="menu" id="navMenu">
+            <li><a href="index.html#beranda">Beranda</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">Tentang Kami <i class="fa-solid fa-caret-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="profil.html">Profil Sekolah</a></li>
+                <li><a href="visi-misi.html">Visi & Misi</a></li>
+                <li><a href="guru-tendik.html">Guru dan Tendik</a></li>
+              </ul>
+            </li>
+            <li><a href="akademik.html" class="active">Akademik</a></li>
+            <li><a href="pengumuman.html">Pengumuman</a></li>
+            <li><a href="prestasi.html">Prestasi</a></li>
+            <li><a href="spmb.html">SPMB</a></li>
+            <li><a href="index.html#kontak">Kontak</a></li>
+            
+            <li style="list-style: none; display: inline-flex; align-items: center; margin-left: 15px;">
+              <button id="darkModeToggle" style="background: none; border: none; color: var(--teks-utama); cursor: pointer; font-size: 1.2rem; padding: 5px; display: flex; align-items: center; justify-content: center;" title="Ubah Tema">
+                <i class="fa-solid fa-moon"></i>
+              </button>
+            </li>
+          </ul>
+
+          <div class="menu-toggle" id="mobileMenu">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- PROGRAM AKADEMIK SECTION -->
+    <section id="akademik" style="padding: 120px 0 80px 0; background-color: var(--bg-utama);">
+      <div class="container">
+        <div class="section-title" style="text-align: center; margin-bottom: 50px;">
+          <h1 style="font-size: 2.5rem; color: var(--teks-utama); font-weight: 700;">Program Akademik & Ekstrakurikuler</h1>
+          <p style="color: var(--teks-redup); font-size: 1rem;">Mendukung perkembangan akademis, karakter, dan bakat minat peserta didik.</p>
+        </div>
+        
+        <!-- WADAH PROGRAM AKADEMIK -->
+        <div id="wadah-akademik" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px;">
+          <!-- Data diisi otomatis oleh JavaScript -->
+        </div>
+
+        <!-- WADAH EKSTRAKURIKULER (SEKARANG SUDAH DI DALAM BODY) -->
+        <div id="wadah-ekstrakurikuler" style="margin-top: 50px;">
+          <!-- Wadah untuk komponen ekstrakurikuler jika diperlukan -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="kontak" class="footer" style="background-color: #111827 !important; padding: 60px 0 20px 0; color: #9ca3af !important; border-top: 1px solid #1f2937;">
+      <div class="container">
+        <div class="copyright" style="text-align: center;">
+          <p>&copy; Copyright 2026 by <span style="color: #ffffff !important; font-weight: 600;">Nanda Azhari</span>. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS UTAMA & LIBRARY -->
+    <script src="dist/js/script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({ once: true });
+
+      // DATA PROGRAM AKADEMIK (Link sudah disesuaikan dengan file yang ada)
+      const dataAkademik = [
+        {
+          tag: "Kurikulum",
+          gambar: "assets/images/kurmer1.jpeg",
+          judul: "Kurikulum Merdeka",
+          deskripsi: "Kurikulum Merdeka bertujuan untuk mewujudkan pembelajaran yang bermakna dan efektif dalam meningkatkan keimanan, ketakwaan, serta kemandirian berpikir siswa.",
+          link: "detail-kurikulum.html",
+          warnaTag: "rgba(0, 123, 255, 0.9)"
+        },
+        {
+          tag: "Karakter",
+          gambar: "assets/images/pembiasaan.jpeg",
+          judul: "Pembiasaan Sekolah",
+          deskripsi: "Dari upacara bendera, senam kesehatan, pramuka, literasi hingga pembiasaan ibadah bersama untuk menghadirkan pendidikan karakter yang unggul.",
+          link: "detail-pembiasaan.html",
+          warnaTag: "rgba(40, 167, 69, 0.9)"
+        },
+        {
+          tag: "Bakat & Minat",
+          gambar: "assets/images/pramuka.JPG",
+          judul: "Ekstrakurikuler",
+          deskripsi: "SDN Gedong 11 Pagi menyediakan berbagai kegiatan seni dan olahraga seperti futsal, marawis, seni tari, menggambar, dan pramuka.",
+          link: "detail-ekskul.html", // Menggantikan detail-kreativitas.html yang hilang
+          warnaTag: "rgba(255, 152, 0, 0.9)"
+        }
+      ];
+
+      // RENDER DATA AKADEMIK
+      document.addEventListener("DOMContentLoaded", () => {
+        const wadahAkademik = document.getElementById("wadah-akademik");
+        if (wadahAkademik) {
+          wadahAkademik.innerHTML = dataAkademik.map(item => `
+            <div class="academic-card" style="background: var(--bg-kartu); border-radius: 16px; overflow: hidden; border: 1px solid var(--garis-border); display: flex; flex-direction: column;">
+              <div style="width: 100%; height: 210px; overflow: hidden; position: relative;">
+                <span style="position: absolute; top: 15px; left: 15px; background: ${item.warnaTag}; color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">${item.tag}</span>
+                <img src="${item.gambar}" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div style="padding: 25px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                  <h3 style="font-size: 1.3rem; color: var(--teks-utama); margin-bottom: 12px; font-weight: 700;">${item.judul}</h3>
+                  <p style="color: var(--teks-deskripsi); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">${item.deskripsi}</p>
+                </div>
+                <a href="${item.link}" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--bg-utama); color: var(--teks-utama); text-decoration: none; padding: 10px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--garis-border); width: 100%;">
+                  Selengkapnya <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem;"></i>
+                </a>
+              </div>
+            </div>
+          `).join('');
+        }
+      });
+    </script>
+  </body>
+</html>

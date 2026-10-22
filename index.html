@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SDN Gedong 11 Pagi</title>
+
+    <!-- Path disesuaikan menggunakan relative path -->
+    <link rel="shortcut icon" href="assets/icon/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="dist/css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  </head>
+  <body>
+    <script>
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    </script>
+    
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-box">
+          <div class="logo" style="display: flex; align-items: center; gap: 12px;">
+            <img src="assets/images/logo.png" alt="Logo SDN Gedong 11 Pagi" style="height: 45px; width: auto; object-fit: contain;">
+            <h1 style="font-size: 1.25rem; font-weight: 700; color: var(--teks-utama); margin: 0; line-height: 1.2;">
+              SDN Gedong 11 Pagi
+            </h1>
+          </div>
+
+          <ul class="menu" id="navMenu">
+            <li><a href="#beranda" class="active">Beranda</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">Tentang Kami <i class="fa-solid fa-caret-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="profil.html">Profil Sekolah</a></li>
+                <li><a href="visi-misi.html">Visi & Misi</a></li>
+                <li><a href="guru-tendik.html">Guru dan Tendik</a></li>
+              </ul>
+            </li>
+            <li><a href="akademik.html">Akademik</a></li>
+            <li><a href="pengumuman.html">Pengumuman</a></li>
+            <li><a href="prestasi.html">Prestasi</a></li>
+            <li><a href="spmb.html">SPMB</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+            
+            <li style="list-style: none; display: inline-flex; align-items: center; margin-left: 15px;">
+              <button id="darkModeToggle" style="background: none; border: none; color: var(--teks-utama); cursor: pointer; font-size: 1.2rem; padding: 5px; display: flex; align-items: center; justify-content: center;" title="Ubah Tema">
+                <i class="fa-solid fa-moon"></i>
+              </button>
+            </li>
+          </ul>
+
+          <div class="menu-toggle" id="mobileMenu">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="beranda" style="position: relative; min-height: 100vh; display: flex; align-items: center; background: url('assets/images/hero.jpg') no-repeat center center/cover; padding: 120px 0 80px 0; overflow: hidden;">
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.6) 100%); z-index: 1;"></div>
+      <div class="container" style="position: relative; z-index: 2; width: 100%;">
+        <div style="max-width: 750px; padding: 0 20px;">
+          <span style="display: inline-block; background: rgba(255, 255, 255, 0.1); color: #38bdf8; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.15);">
+            Official Website
+          </span>
+          <h1 style="font-size: clamp(2.5rem, 5vw, 3.8rem); color: #ffffff; font-weight: 800; line-height: 1.15; margin-bottom: 20px; letter-spacing: -1px;">
+            Selamat Datang di <br>
+            <span style="background: linear-gradient(to right, #38bdf8, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">SDN Gedong 11 Pagi</span>
+          </h1>
+          <p style="font-size: clamp(1rem, 2vw, 1.15rem); color: #cbd5e1; line-height: 1.6; margin-bottom: 35px; font-weight: 400;">
+            Mewujudkan peserta didik yang cerdas, berakhlak mulia, disiplin, mandiri, dan memiliki semangat belajar untuk meraih masa depan yang lebih baik.
+          </p>
+          <a href="profil.html" style="display: inline-flex; align-items: center; gap: 10px; background: #0ea5e9; color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 50px; font-size: 1rem; font-weight: 600; box-shadow: 0 10px 25px rgba(14, 165, 233, 0.4); transition: all 0.3s ease;">
+            Lihat Tentang Kami <i class="fa-solid fa-arrow-right" style="font-size: 0.9rem;"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TENTANG KAMI -->
+    <section class="tentang" id="tentang" style="padding: 100px 0; background-color: var(--bg-putih);">
+      <div class="container">
+        <div class="tentang-box">
+          <div class="box" data-aos="fade-right" data-aos-duration="1000">
+            <img src="assets/images/skul.jpg" alt="Tentang Image">
+          </div>
+          <div class="box" data-aos="fade-left" data-aos-duration="1000">
+            <h1>Tentang Kami</h1>
+            <p>
+              SDN Gedong 11 Pagi merupakan Sekolah Dasar Negeri dibawah naungan Suku Dinas Pendidikan Wilayah II Kota Administrasi Jakarta Timur, memiliki akreditasi A (Amat Baik) yang berlokasi di Jl. H. Taiman Barat II RT. 05 RW. 10 Kelurahan Gedong Kecamatan Pasar Rebo Kota Administrasi Jakarta Timur
+            </p>
+          </div>
+        </div>
+        
+        <div class="info" style="margin-top: 60px;">
+          <div class="box" data-aos="zoom-in" data-aos-duration="800" style="border: 3px solid #cbd5e1; border-radius: 16px; padding: 30px; background: var(--bg-kartu); transition: none;">
+              <div class="info-icon-wrapper"><i class="fa-solid fa-user-graduate"></i></div>
+              <h2 style="font-size: 2rem; font-weight: 700; margin: 0; line-height: 1.2;"><span style="color: #0ea5e9;">280+</span></h2>
+              <span class="info-label">Siswa</span>
+          </div>
+          <div class="box" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+            <div class="info-icon-wrapper"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <h2 style="font-size: 2rem; font-weight: 700; margin: 0; line-height: 1.2;"><span style="color: #0ea5e9;">16</span></h2>
+            <span class="info-label">Guru & Tendik</span>
+          </div>
+          <div class="box" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
+            <div class="info-icon-wrapper"><i class="fa-solid fa-users-rectangle"></i></div>
+            <h2 style="font-size: 2rem; font-weight: 700; margin: 0; line-height: 1.2;"><span style="color: #0ea5e9;">11</span></h2>
+            <span class="info-label">Rombongan Belajar</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- PROGRAM AKADEMIK -->
+    <section id="akademik" style="padding: 100px 0; background-color: var(--bg-utama);">
+      <div class="container">
+        <div class="section-title" style="text-align: center; margin-bottom: 50px;">
+          <h1 style="font-size: 2.5rem; color: var(--teks-utama); font-weight: 700; position: relative; display: inline-block;">
+            Program Akademik
+          </h1>
+        </div>
+        
+        <div id="wadah-akademik" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px;">
+          <!-- Data diisi otomatis oleh JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- PENGUMUMAN -->
+    <section class="pengumuman" id="pengumuman" style="padding: 100px 0; background-color: var(--bg-putih);">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h1>Pengumuman Terbaru</h1>
+          <p>Informasi dan agenda penting seputar kegiatan akademik sekolah</p>
+        </div>
+        
+        <div class="pengumuman-box" id="wadah-pengumuman">
+          <!-- Data diisi otomatis oleh JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- PRESTASI -->
+    <section id="prestasi" style="padding: 80px 0; background-color: var(--bg-utama);">
+      <div class="container">
+        <div class="section-title" style="text-align: center; margin-bottom: 40px;">
+          <h2 style="font-size: 2.25rem; color: var(--teks-utama); font-weight: 700; margin-bottom: 10px;">Prestasi Terbaru Siswa</h2>
+          <p style="color: var(--teks-redup); font-size: 1rem; margin: 0;">Rekam jejak kebanggaan, kreativitas, dan talenta luar biasa siswa SDN Gedong 11 Pagi</p>
+        </div>
+
+        <div class="achievement-grid" id="wadah-prestasi" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; align-items: stretch;">
+          <!-- Data diisi otomatis oleh JavaScript -->
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="prestasi.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background-color: #007bff; color: #ffffff; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 0.95rem;">
+            Lihat Semua Prestasi <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATISTIK SPMB / PPDB -->
+    <section class="ppdb" id="ppdb" style="padding: 100px 0; background-color: var(--bg-putih);">
+      <div class="container">
+        <div class="section-title" style="text-align: center; margin-bottom: 50px;" data-aos="fade-up">
+          <h1 style="font-size: 2.3rem; color: var(--teks-utama); margin-bottom: 10px;">Statistik SPMB Sekolah</h1>
+          <p style="color: var(--teks-redup); font-size: 1rem;">Data Daya Tampung rencana rombongan belajar dan keketatan seleksi.</p>
+        </div>
+
+        <div id="wadah-spmb" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 50px;" data-aos="fade-up" data-aos-delay="100">
+          <!-- Data diisi otomatis oleh JavaScript -->
+        </div>
+
+        <div style="padding: 60px 0; background-color: #007bff; color: white; text-align: center; border-radius: 16px; margin-bottom: 50px;">
+          <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 10px; color: #ffffff;">Sistem Penerimaan Murid Baru (SPMB) Telah Dibuka!</h2>
+          <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 25px auto;">Mari bergabung bersama keluarga besar SDN Gedong 11 Pagi.</p>
+          <a href="spmb.html" style="background: white; color: #007bff; text-decoration: none; padding: 12px 30px; border-radius: 30px; font-weight: 600; display: inline-block;">Lihat Panduan & Syarat Pendaftaran</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- JS UTAMA & LIBRARY -->
+    <script src="dist/js/script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({ once: true });
+
+      // DATABASE PUSAT
+      const dataAkademik = [
+        {
+          tag: "Inti",
+          gambar: "assets/images/kurmer1.jpeg",
+          judul: "Kurikulum Merdeka",
+          deskripsi: "Kurikulum Merdeka memiliki tujuan untuk mewujudkan pembelajaran yang bermakna dan efektif dalam meningkatkan keimanan, ketakwaan, serta kemandirian berpikir siswa.",
+          link: "detail-kurikulum.html",
+          warnaTag: "rgba(0, 123, 255, 0.9)"
+        },
+        {
+          tag: "Karakter",
+          gambar: "assets/images/pembiasaan.jpeg",
+          judul: "Pembiasaan Sekolah",
+          deskripsi: "Dari upacara bendera, senam kesehatan, pramuka, literasi hingga pembiasaan ibadah bersama, SDN Gedong 11 Pagi menghadirkan pendidikan karakter yang unggul.",
+          link: "detail-pembiasaan.html",
+          warnaTag: "rgba(40, 167, 69, 0.9)"
+        },
+        {
+          tag: "Bakat",
+          gambar: "assets/images/pramuka.JPG",
+          judul: "Ekstrakurikuler",
+          deskripsi: "SDN Gedong 11 Pagi menyediakan berbagai kegiatan seni dan olahraga seperti futsal, marawis, seni tari, menggambar, dan pramuka sebagai wadah kreativitas.",
+          link: "detail-ekskul.html",
+          warnaTag: "rgba(255, 152, 0, 0.9)"
+        }
+      ];
+
+      const dataPengumuman = [
+        {
+          tgl: "11", bulan: "Sep", kategori: "Edukasi dan Rekreasi",
+          judul: "Kegiatan Sinau Wisata",
+          link: "detail-pengumuman-raport.html",
+          ringkasan: "Diberitahukan kepada seluruh orang tua siswa mengenai pelaksanaan kegiatan Sinau Wisata..."
+        },
+        {
+          tgl: "9", bulan: "September", kategori: "Sosialisasi",
+          judul: "Persiapan Milk Life Soccer KU-10 dan KU-12",
+          link: "#",
+          ringkasan: "Rangkaian perlombaan olahraga dan seni antar kelas untuk mengasah bakat non-akademik siswa..."
+        },
+        {
+          tgl: "02", bulan: "Jun", kategori: "SPMB",
+          judul: "Alur Verifikasi Berkas Fisik SPMB 2026",
+          link: "#",
+          ringkasan: "Panduan penting bagi calon orang tua murid mengenai daftar berkas wajib yang harus dibawa ke loket..."
+        }
+      ];
+
+      const dataPrestasi = [
+        {
+          gambar: "assets/images/azzya.jpeg",
+          tingkat: "Tingkat Kecamatan",
+          tahun: "2026",
+          kategori: "Juara 1 Lomba Kriya FLS3N Kecamatan",
+          judul: "Festival Lomba Seni dan Sastra Siswa Nasional (FLS3N) 2026",
+          pemenang: "AZZYA BINTANG RAMADAN",
+          deskripsi: "Ananda Azzya Bintang Ramadan berhasil meraih Juara 1 FLS3N Tingkat Kecamatan Pasar Rebo dan melaju ke FLS3N Tingkat Kota Jakarta Timur 2."
+        },
+        {
+          gambar: "assets/images/tari.jpeg",
+          tingkat: "Antar Sekolah",
+          tahun: "2026",
+          kategori: "Juara 2 Seni Tari Tradisional",
+          judul: "CRENOVERS CUP 2026",
+          pemenang: "KEISYA AZHAIRRA ALFIANDO, FYARA SAFFA ALSHAMEYZA & TIARA NINDYA SHUFNA",
+          deskripsi: "Perwakilan tim tari sekolah memukau para juri lewat keanggunan gerakan Tari Tradisional pada ajang Crenovers Cup 2026 di Sekolah NOAH."
+        },
+        {
+          gambar: "assets/images/cca.jpeg",
+          tingkat: "Tingkat Kota",
+          tahun: "2026",
+          kategori: "Juara Harapan III Lomba CCA",
+          judul: "Lomba Cerdas Cermat Al-Kitab 2026",
+          pemenang: "MANUELLA PUTRI ALEXA, AARON KENWARD & NOVIYANTI PUTRI TURNIP",
+          deskripsi: "Tim Cerdas Cermat Al-Kitab sekolah menunjukkan wawasan kerohanian, ketepatan, dan kekompakan yang luar biasa dalam menjawab setiap pertanyaan pada ajang Lomba CCA tahun 2026."
+        }
+      ];
+
+      const dataSpmb = [
+        { icon: "fa-users-line", warna: "#007bff", angka: "64", label: "Daya Tampung 2027" },
+        { icon: "fa-user-plus", warna: "#28a745", angka: "342", label: "Pendaftar (2025)" },
+        { icon: "fa-school", warna: "#ff9800", angka: "2", label: "Rencana Rombel" },
+        { icon: "fa-chart-pie", warna: "#dc3545", angka: "1 : 2.6", label: "Rasio Keketatan" }
+      ];
+
+      // FUNGSI RENDER DATA
+      document.addEventListener("DOMContentLoaded", () => {
+        
+        // Render Akademik
+        const wadahAkademik = document.getElementById("wadah-akademik");
+        if (wadahAkademik) {
+          wadahAkademik.innerHTML = dataAkademik.map(item => `
+            <div class="academic-card" style="background: var(--bg-kartu); border-radius: 16px; overflow: hidden; border: 1px solid var(--garis-border); display: flex; flex-direction: column;">
+              <div style="width: 100%; height: 210px; overflow: hidden; position: relative;">
+                <span style="position: absolute; top: 15px; left: 15px; background: ${item.warnaTag}; color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">${item.tag}</span>
+                <img src="${item.gambar}" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div style="padding: 25px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                  <h3 style="font-size: 1.3rem; color: var(--teks-utama); margin-bottom: 12px; font-weight: 700;">${item.judul}</h3>
+                  <p style="color: var(--teks-deskripsi); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">${item.deskripsi}</p>
+                </div>
+                <a href="${item.link}" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--bg-utama); color: var(--teks-utama); text-decoration: none; padding: 10px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--garis-border); width: 100%;">
+                  Selengkapnya <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem;"></i>
+                </a>
+              </div>
+            </div>
+          `).join('');
+        }
+
+        // Render Pengumuman
+        const wadahPengumuman = document.getElementById("wadah-pengumuman");
+        if (wadahPengumuman) {
+          wadahPengumuman.innerHTML = dataPengumuman.map(item => `
+            <div class="card-pengumuman">
+              <div class="date-tag">
+                <span class="day">${item.tgl}</span>
+                <span class="month">${item.bulan}</span>
+              </div>
+              <div class="content-pengumuman">
+                <span class="category">${item.kategori}</span>
+                <h2><a href="${item.link}">${item.judul}</a></h2>
+                <p>${item.ringkasan}</p>
+                <a href="${item.link}" class="read-more">Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          `).join('');
+        }
+
+        // Render Prestasi
+        const wadahPrestasi = document.getElementById("wadah-prestasi");
+        if (wadahPrestasi) {
+          wadahPrestasi.innerHTML = dataPrestasi.map(item => `
+            <div class="prestasi-card" style="background: var(--bg-kartu); border-radius: 16px; overflow: hidden; border: 1px solid var(--garis-border); display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div class="img-wrapper" style="width: 100%; height: 220px; overflow: hidden; position: relative;">
+                  <img src="${item.gambar}" style="width: 100%; height: 100%; object-fit: cover;">
+                  <span style="position: absolute; bottom: 15px; left: 15px; background: rgba(30, 41, 59, 0.85); color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.75rem;">${item.tingkat}</span>
+                  <span style="position: absolute; top: 15px; right: 15px; background: #007bff; color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem;">${item.tahun}</span>
+                </div>
+                <div style="padding: 20px;">
+                  <div style="color: #d97706; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;"><i class="fa-solid fa-trophy"></i> ${item.kategori}</div>
+                  <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--teks-utama); margin-bottom: 12px;">${item.judul}</h3>
+                  <p style="font-size: 0.875rem; font-weight: 700; color: var(--teks-nama-pemenang);">Pemenang: ${item.pemenang}</p>
+                  <p style="font-size: 0.9rem; color: var(--teks-deskripsi);">${item.deskripsi}</p>
+                </div>
+              </div>
+            </div>
+          `).join('');
+        }
+
+        // Render SPMB
+        const wadahSpmb = document.getElementById("wadah-spmb");
+        if (wadahSpmb) {
+          wadahSpmb.innerHTML = dataSpmb.map(item => `
+            <div style="background: var(--bg-kartu); border: 1px solid var(--garis-border); border-top: 4px solid ${item.warna}; border-radius: 8px; padding: 30px 20px; text-align: center; width: 220px;">
+              <i class="fa-solid ${item.icon}" style="font-size: 2rem; color: ${item.warna}; margin-bottom: 15px;"></i>
+              <h2 style="font-size: 2.2rem; color: var(--teks-utama); font-weight: 700; margin-bottom: 5px;">${item.angka}</h2>
+              <p style="color: var(--teks-redup); font-size: 0.9rem; font-weight: 500; text-transform: uppercase;">${item.label}</p>
+            </div>
+          `).join('');
+        }
+
+      });
+      
+    </script>
+    
+       <!-- ================= FOOTER ================= -->
+    <footer id="kontak" class="footer" style="background-color: #0f172a; padding: 60px 0 20px 0; color: #cbd5e1;">
+      <style>
+        .footer-social-link {
+          display: grid; 
+          place-items: center; 
+          width: 40px; 
+          height: 40px; 
+          background-color: #1e293b; 
+          border-radius: 50%; 
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+        .instagram-hover:hover { background-color: #e1306c !important; transform: translateY(-3px); }
+        .instagram-hover:hover i { color: #ffffff !important; }
+        .tiktok-hover:hover { background-color: #000000 !important; box-shadow: 0 0 10px rgba(255,255,255,0.5); transform: translateY(-3px); }
+        .tiktok-hover:hover i { color: #00f2fe !important; }
+        .youtube-hover:hover { background-color: #ff0000 !important; transform: translateY(-3px); }
+        .youtube-hover:hover i { color: #ffffff !important; }
+      </style>
+
+      <div class="container">
+        <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-start; text-align: left;">
+
+          <!-- KOLOM 1 -->
+          <div style="flex: 1; min-width: 250px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 25px;">
+              <div style="width: 45px; height: 45px; background-color: #1e293b; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid #334155; flex-shrink: 0; overflow: hidden;">
+                <img src="assets/images/logo.png" alt="Logo SDN Gedong 11 Pagi" style="width: 100%; height: 100%; object-fit: contain; padding: 4px;">
+              </div>
+              <div>
+                <h4 style="font-size: 1.15rem; color: #ffffff; font-weight: 700; margin: 0; line-height: 1.2;">SDN Gedong 11 Pagi</h4>
+                <span style="font-size: 0.8rem; color: #94a3b8; display: block; margin-top: 2px;">NPSN: 20108996</span>
+              </div>
+            </div>
+
+            <h3 style="font-size: 1.5rem; color: #007bff; font-weight: 700; margin-bottom: 15px;">Social Media</h3>
+            <p style="color: #cbd5e1; font-size: 1rem; line-height: 1.5; margin-bottom: 20px;">
+              Hubungi atau ikuti keseruan kegiatan belajar mengajar kami melalui platform media sosial resmi sekolah.
+            </p>
+
+            <div style="display: flex; gap: 12px;">
+              <a href="https://www.instagram.com/sdngedong11pagi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="footer-social-link instagram-hover">
+                <i class="fab fa-instagram" style="color: #e1306c; font-size: 1.1rem;"></i>
+              </a>
+              <a href="https://www.tiktok.com/@sdngedong11offici?is_from_webapp=1&sender_device=pc" class="footer-social-link tiktok-hover">
+                <i class="fab fa-tiktok" style="color: #ffffff; font-size: 1.1rem;"></i>
+              </a>
+              <a href="https://youtube.com/@sdn_gedong11channel85?si=f6ZG_akzDdHY008t" class="footer-social-link youtube-hover">
+                <i class="fab fa-youtube" style="color: #ff0000; font-size: 1.1rem;"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- KOLOM 2 -->
+          <div style="flex: 1; min-width: 200px;">
+            <h3 style="font-size: 1.5rem; color: #007bff; font-weight: 700; margin-bottom: 20px;">Tautan Langsung</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+              <li><a href="#beranda" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Beranda</a></li>
+              <li><a href="profil.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Tentang Kami</a></li>
+              <li><a href="akademik.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Akademik</a></li>
+              <li><a href="pengumuman.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Pengumuman</a></li>
+              <li><a href="prestasi.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Prestasi</a></li>
+              <li><a href="spmb.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">SPMB</a></li>
+              <li><a href="#kontak" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- KOLOM 3 -->
+          <div style="flex: 1; min-width: 280px;">
+            <h3 style="font-size: 1.5rem; color: #007bff; font-weight: 700; margin-bottom: 20px;">Kontak</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px;">
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5;">
+                <i class="fas fa-envelope" style="color: #007bff; margin-top: 4px;"></i>
+                <span>sd.gedong11@gmail.com</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5;">
+                <i class="fas fa-phone" style="color: #007bff; margin-top: 4px;"></i>
+                <span>021-7903894</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5;">
+                <i class="fas fa-map-marker-alt" style="color: #007bff; margin-top: 4px;"></i>
+                <div>
+                  <span>Jl. H. Taiman Barat II RT.05 RW.10 Kelurahan Gedong Kecamatan Pasar Rebo Kota Administrasi Jakarta Timur</span>
+                  <br>
+                  <a href="https://maps.app.goo.gl/ysCWEmixRhvcVdY39" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; color: #38bdf8; text-decoration: none; font-size: 0.85rem; margin-top: 6px; font-weight: 600;">
+                    <i class="fas fa-directions"></i> Lihat di Google Maps
+                  </a>
+                </div>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5; border-top: 1px solid #334155; padding-top: 12px;">
+                <i class="fas fa-clock" style="color: #007bff; margin-top: 4px;"></i>
+                <div>
+                  <span style="font-weight: 600; color: #ffffff; display: block; margin-bottom: 2px; font-size: 0.95rem;">Jam Pelayanan Administrasi:</span>
+                  <span style="font-size: 0.85rem; color: #94a3b8;">Senin - Jumat: 08.00 - 14.00 WIB<br>Sabtu &amp; Minggu: Libur</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="copyright" style="margin-top: 50px; border-top: 1px solid #334155; padding-top: 20px; text-align: center;">
+          <p>&copy; Copyright 2026 by <span>Admin</span>. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

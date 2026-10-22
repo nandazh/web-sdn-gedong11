@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guru & Tendik - SDN Gedong 11 Pagi</title>
+    <link rel="shortcut icon" href="/assets/icon/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/dist/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    
+    <style>
+      .guru-section {
+        padding: 40px 0;
+      }
+      .group-title {
+        font-size: 1.4rem;
+        color: #1e293b;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 40px;
+        margin-bottom: 30px;
+        letter-spacing: 0.5px;
+        text-align: center;
+      }
+      
+      /* Flexbox/Grid agar kartu tersusun rapi berdampingan (2 atau lebih per baris) */
+      .grid-staff {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        margin-bottom: 50px;
+      }
+
+      /* Struktur Kartu Guru & Tendik */
+      .card-staff {
+        position: relative;
+        width: 240px; /* Lebar kartu pas foto */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      /* Pengaturan Frame Foto */
+      .img-container-staff {
+        width: 100%;
+        height: 280px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        overflow: hidden;
+        background-color: #f1f5f9;
+        border-radius: 12px;
+      }
+
+      .img-container-staff img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .card-staff:hover .img-container-staff img {
+        transform: scale(1.05);
+      }
+
+      /* Kotak Identitas Oranye Melayang */
+      .info-staff {
+        background: linear-gradient(135deg, #ff9800, #f57c00);
+        color: #ffffff;
+        padding: 15px 12px;
+        border-radius: 10px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(245, 124, 0, 0.3);
+        margin-top: -25px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .info-staff h3 {
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+        line-height: 1.3;
+        letter-spacing: 0.3px;
+        color: #ffffff !important;
+      }
+
+      .info-staff p {
+        font-size: 0.75rem;
+        opacity: 0.95;
+        line-height: 1.2;
+        color: #ffffff !important;
+        margin: 0;
+      }
+      
+      /* Garis pemisah antar kategori */
+      hr.divider {
+        border: 0;
+        height: 1px;
+        background-color: #e2e8f0;
+        margin: 40px auto 20px auto;
+        width: 80%;
+      }
+
+      /* Mode Gelap */
+      [data-theme="dark"] main,
+      [data-theme="dark"] section,
+      [data-theme="dark"] .container * {
+        color: var(--teks-utama);
+      }
+
+      [data-theme="dark"] .group-title {
+        color: var(--teks-utama) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    </script>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-box">
+          <div class="logo" style="display: flex; align-items: center; gap: 12px;">
+            <img src="assets/images/logo.png" alt="Logo SDN Gedong 11 Pagi" style="height: 45px; width: auto; object-fit: contain;">
+            <h1 style="font-size: 1.25rem; font-weight: 700; color: var(--teks-utama); margin: 0; line-height: 1.2;">
+              SDN Gedong 11 Pagi
+            </h1>
+          </div>
+
+          <ul class="menu" id="navMenu">
+            <li><a href="index.html#beranda">Beranda</a></li>
+            <li class="dropdown">
+              <a href="#" class="active">Tentang Kami <i class="fa-solid fa-caret-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="profil.html">Profil Sekolah</a></li>
+                <li><a href="visi-misi.html">Visi & Misi</a></li>
+                <li><a href="guru-tendik.html">Guru dan Tendik</a></li>
+              </ul>
+            </li>
+            <li><a href="akademik.html">Akademik</a></li>
+            <li><a href="pengumuman.html">Pengumuman</a></li>
+            <li><a href="prestasi.html">Prestasi</a></li>
+            <li><a href="spmb.html">SPMB</a></li>
+            <li><a href="index.html#kontak">Kontak</a></li>
+            
+            <li style="list-style: none; display: inline-flex; align-items: center; margin-left: 15px;">
+              <button id="darkModeToggle" style="background: none; border: none; color: var(--teks-utama); cursor: pointer; font-size: 1.2rem; padding: 5px; display: flex; align-items: center; justify-content: center;" title="Ubah Tema">
+                <i class="fa-solid fa-moon"></i>
+              </button>
+            </li>
+          </ul>
+
+          <div class="menu-toggle" id="mobileMenu">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main style="padding-top: 120px; min-height: 100vh;">
+      <div class="container">
+        
+        <div class="section-title">
+          <h1>Guru & Tenaga Kependidikan</h1>
+        </div>
+
+        <div class="guru-section">
+          
+          <!-- KEPALA SEKOLAH -->
+          <h2 class="group-title">Kepala Sekolah</h2>
+          <div class="grid-staff">
+            <div class="card-staff">
+              <div class="img-container-staff">
+                <img src="assets/images/kepsek/ks.JPG" alt="Foto Kepala Sekolah" />
+              </div>
+              <div class="info-staff">
+                <h3 style="text-transform: none;">Kusrini, M.Pd.</h3>
+                <p>Kepala Sekolah</p>
+              </div>
+            </div>
+          </div>
+
+          <hr class="divider">
+
+         <!-- GURU KELAS & MAPEL -->
+          <h2 class="group-title">Guru / Tenaga Pendidik</h2>
+          <div class="grid-staff">
+
+            <!-- Guru Kelas 1 A -->
+            <div class="card-staff">
+              <div class="img-container-staff">
+                <img src="assets/images/avatar-placeholder.png" alt="Tuty Aulia Rusliana, S.Pd" />
+              </div>
+              <div class="info-staff">
+                <h3 style="text-transform: none;">Tuty Aulia Rusliana, S.Pd</h3>
+                <p>Guru Kelas / Wali Kelas 1 A</p>
+              </div>
+            </div>
+
+            <!-- Guru Kelas 1 B -->
+            <div class="card-staff">
+              <div class="img-container-staff">
+                <img src="assets/images/avatar-placeholder.png" alt="Citra Rachmawati, S.Pd" />
+              </div>
+              <div class="info-staff">
+                <h3 style="text-transform: none;">Citra Rachmawati, S.Pd</h3>
+                <p>Guru Kelas / Wali Kelas 1 B</p>
+              </div>
+            </div>
+
+            <!-- Guru Kelas 2 A & 2 B -->
+            <div class="card-staff">
+              <div class="img-container-staff">
+                <img src="assets/images/avatar-placeholder.png" alt="Astuti, S.Pd" />
+              </div>
+              <div class="info-staff">
+                <h3 style="text-transform: none;">Astuti, S.Pd</h3>
+                <p>Guru Kelas 2 A dan 2 B</p>
+              </div>
+            </div>
+
+            <!-- Guru Kelas 3 A -->
+            <div class="card-staff">
+              <div class="img-container-staff">
+                <img src="assets/images/avatar-placeholder.png" alt="Dada Suhada, S.Pd" />
+              </div>
+              <div class="info-staff">
+                <h3 style="text-transform: none;">Dada Suhada, S.Pd</h3>
+                <p>Guru Kelas / Wali Kelas 3 A</p>
+              </div>
+            </div>
+
+            <!-- Guru Kelas 3 B -->
+            <div class="card-staff">
+              <div class="img-container-staff">
+                <img src="assets/images/avatar-placeholder.png" alt="Devi Octavia, S.Pd" />
+              </div>
+              <div class="info-staff">
+                <h3 style="text-transform: none;">Devi Octavia, S.Pd</h3>
+                <p>Guru Kelas / Wali Kelas 3 B</p>
+              </div>
+            </div>
+
+            <!-- Guru Kelas 4 A -->
+            <div class="card-staff">
+              <div class="img-container-staff">
+                <img src="assets/images/avatar-placeholder.png" alt="Berta Mahariyanti, S.Pd" />
+              </div>
+              <div class="info-staff">
+                <h3 style="text-transform: none;">Berta Mahariyanti, S.Pd</h3>
+                <p>Guru Kelas / Wali Kelas 4 A</p>
+              </div>
+            </div>
+
+            <!-- Guru Kelas 4 B -->
+            <div class="card-staff">
+              <div class="img-container-staff">
+                <img src="assets/images/avatar-placeholder.png" alt="Indratie, S.Pd" />
+              </div>
+              <div class="info-staff">
+                <h3 style="text-transform: none;">Indratie, S.Pd</h3>
+                <p>Guru Kelas / Wali Kelas 4 B</p>
+              </div>
+            </div>
+
+            <!-- Guru Kelas 5 A -->
+            <div class="card-staff">
+              <div class="img-container-staff">
+                <img src="assets/images/avatar-placeholder.png" alt="Nanih, S.Pd" />
+              </div>
+              <div class="info-staff">
+                <h3 style="text-transform: none;">Nanih, S.Pd</h3>
+                <p>Guru Kelas / Wali Kelas 5 A</p>
+              </div>
+            </div>
+
+            <!-- Guru Kelas 5 B -->
+            <div class="card-staff">
+              <div class="img-container-staff">
+                <img src="assets/images/avatar-placeholder.png" alt="Ratna Meidawati Bangun, S.Pd" />
+              </div>
+              <div class="info-staff">
+                <h3 style="text-transform: none;">Ratna Meidawati, S.Pd</h3>
+                <p>Guru Kelas / Wali Kelas 5 B</p>
+              </div>
+            </div>
+
+            <!-- Guru Kelas 6 -->
+            <div class="card-staff">
+              <div class="img-container-staff">
+                <img src="assets/images/avatar-placeholder.png" alt="Muhammad Heri Apriadi, S.Pd" />
+              </div>
+              <div class="info-staff">
+                <h3 style="text-transform: none;">M. Heri Apriadi, S.Pd</h3>
+                <p>Guru Kelas / Wali Kelas 6</p>
+              </div>
+            </div>
+
+            <!-- Guru PJOK -->
+            <div class="card-staff">
+              <div class="img-container-staff">
+                <img src="assets/images/avatar-placeholder.png" alt="Abdul Hafid, S.Pd" />
+              </div>
+              <div class="info-staff">
+                <h3 style="text-transform: none;">Abdul Hafid, S.Pd</h3>
+                <p>Guru PJOK</p>
+              </div>
+            </div>
+
+            <!-- Guru PAI -->
+            <div class="card-staff">
+              <div class="img-container-staff">
+                <img src="assets/images/avatar-placeholder.png" alt="Imam Mustaqim, S.Pd" />
+              </div>
+              <div class="info-staff">
+                <h3 style="text-transform: none;">Imam Mustaqim, S.Pd</h3>
+                <p>Guru Pendidikan Agama Islam</p>
+              </div>
+            </div>
+
+          </div>
+
+          <hr class="divider">
+
+          <!-- TENAGA KEPENDIDIKAN -->
+          <h2 class="group-title">Tenaga Kependidikan</h2>
+          <div class="grid-staff">
+            <div class="card-staff">
+              <div class="img-container-staff">
+                <img src="assets/images/tendik/tendik.jpeg" alt="Foto Nanda Azhari" />
+              </div>
+              <div class="info-staff">
+                <h3 style="text-transform: none;">Nanda Azhari</h3>
+                <p>Tenaga Kependidikan</p>
+              </div>
+            </div>
+            <div class="card-staff">
+              <div class="img-container-staff">
+                <img src="assets/images/avatar-placeholder.png" alt="Foto M. Yakub Kalnun" />
+              </div>
+              <div class="info-staff">
+                <h3 style="text-transform: none;">M. Yakub Kalnun, S.Pd</h3>
+                <p>Tenaga Kependidikan</p>
+              </div>
+            </div>
+
+          </div>
+
+          <hr class="divider">
+
+          <!-- CARAKA -->
+          <h2 class="group-title">Caraka</h2>
+          <div class="grid-staff">
+            <div class="card-staff">
+              <div class="img-container-staff">
+                <img src="assets/images/caraka/opik.jpeg" alt="Foto Ropik Darwis" />
+              </div>
+              <div class="info-staff">
+                <h3 style="text-transform: none;">Ropik Darwis</h3>
+                <p>Petugas Keamanan Sekolah (Caraka)</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer id="kontak" class="footer" style="background-color: #0f172a; padding: 60px 0 20px 0; color: #cbd5e1;">
+      <style>
+        .footer-social-link {
+          display: grid; 
+          place-items: center; 
+          width: 40px; 
+          height: 40px; 
+          background-color: #1e293b; 
+          border-radius: 50%; 
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+        .instagram-hover:hover { background-color: #e1306c !important; transform: translateY(-3px); }
+        .instagram-hover:hover i { color: #ffffff !important; }
+        
+        .tiktok-hover:hover { background-color: #000000 !important; box-shadow: 0 0 10px rgba(255,255,255,0.5); transform: translateY(-3px); }
+        .tiktok-hover:hover i { color: #00f2fe !important; }
+        
+        .youtube-hover:hover { background-color: #ff0000 !important; transform: translateY(-3px); }
+        .youtube-hover:hover i { color: #ffffff !important; }
+      </style>
+
+      <div class="container">
+        <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-start; text-align: left;">
+
+          <!-- KOLOM 1: IDENTITAS & SOSMED -->
+          <div style="flex: 1; min-width: 250px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 25px;">
+              <div style="width: 45px; height: 45px; background-color: #1e293b; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid #334155; flex-shrink: 0; overflow: hidden;">
+                <img src="assets/images/logo.png" alt="Logo SDN Gedong 11 Pagi" style="width: 100%; height: 100%; object-fit: contain; padding: 4px;">
+              </div>
+              <div>
+                <h4 style="font-size: 1.15rem; color: #ffffff; font-weight: 700; margin: 0; line-height: 1.2;">SDN Gedong 11 Pagi</h4>
+                <span style="font-size: 0.8rem; color: #94a3b8; display: block; margin-top: 2px;">NPSN: 20108996</span>
+              </div>
+            </div>
+
+            <h3 style="font-size: 1.5rem; color: #007bff; font-weight: 700; margin-bottom: 15px;">Social Media</h3>
+            <p style="color: #cbd5e1; font-size: 1rem; line-height: 1.5; margin-bottom: 20px;">
+              Hubungi atau ikuti keseruan kegiatan belajar mengajar kami melalui platform media sosial resmi sekolah.
+            </p>
+
+            <div style="display: flex; gap: 12px;">
+              <a href="https://www.instagram.com/sdngedong11pagi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="footer-social-link instagram-hover">
+                <i class="fab fa-instagram" style="color: #e1306c; font-size: 1.1rem; transition: color 0.3s;"></i>
+              </a>
+              <a href="https://www.tiktok.com/@sdngedong11offici?is_from_webapp=1&sender_device=pc" class="footer-social-link tiktok-hover">
+                <i class="fab fa-tiktok" style="color: #ffffff; font-size: 1.1rem; transition: color 0.3s;"></i>
+              </a>
+              <a href="https://youtube.com/@sdn_gedong11channel85?si=f6ZG_akzDdHY008t" class="footer-social-link youtube-hover">
+                <i class="fab fa-youtube" style="color: #ff0000; font-size: 1.1rem; transition: color 0.3s;"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- KOLOM 2: TAUTAN LANGSUNG -->
+          <div style="flex: 1; min-width: 200px;">
+            <h3 style="font-size: 1.5rem; color: #007bff; font-weight: 700; margin-bottom: 20px;">Tautan Langsung</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+              <li><a href="#beranda" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Beranda</a></li>
+              <li><a href="profil.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Tentang Kami</a></li>
+              <li><a href="akademik.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Akademik</a></li>
+              <li><a href="pengumuman.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Pengumuman</a></li>
+              <li><a href="prestasi.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Prestasi</a></li>
+              <li><a href="spmb.html" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">SPMB</a></li>
+              <li><a href="#kontak" style="color: #cbd5e1; text-decoration: none; font-size: 1rem;">Kontak</a></li>
+            </ul>
+          </div>
+
+          <!-- KOLOM 3: KONTAK -->
+          <div style="flex: 1; min-width: 280px;">
+            <h3 style="font-size: 1.5rem; color: #007bff; font-weight: 700; margin-bottom: 20px;">Kontak</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px;">
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5;">
+                <i class="fas fa-envelope" style="color: #007bff; margin-top: 4px;"></i>
+                <span>sd.gedong11@gmail.com</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5;">
+                <i class="fas fa-phone" style="color: #007bff; margin-top: 4px;"></i>
+                <span>021-7903894</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5;">
+                <i class="fas fa-map-marker-alt" style="color: #007bff; margin-top: 4px;"></i>
+                <div>
+                  <span>Jl. H. Taiman Barat II RT.05 RW.10 Kelurahan Gedong Kecamatan Pasar Rebo Kota Administrasi Jakarta Timur</span>
+                  <br>
+                  <a href="https://maps.app.goo.gl/ysCWEmixRhvcVdY39" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; color: #38bdf8; text-decoration: none; font-size: 0.85rem; margin-top: 6px; font-weight: 600;">
+                    <i class="fas fa-directions"></i> Lihat di Google Maps
+                  </a>
+                </div>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5; border-top: 1px solid #334155; padding-top: 12px;">
+                <i class="fas fa-clock" style="color: #007bff; margin-top: 4px;"></i>
+                <div>
+                  <span style="font-weight: 600; color: #ffffff; display: block; margin-bottom: 2px; font-size: 0.95rem;">Jam Pelayanan Administrasi:</span>
+                  <span style="font-size: 0.85rem; color: #94a3b8;">Senin - Jumat: 08.00 - 14.00 WIB<br>Sabtu &amp; Minggu: Libur</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="copyright" style="margin-top: 50px; border-top: 1px solid #334155; padding-top: 20px; text-align: center;">
+          <p>&copy; Copyright 2026 by <span>Admin</span>. All Rights Reserved.</p>
+        </div>
+
+      </div>
+    </footer>
+
+    <script src="dist/js/script.js"></script>
+  </body>
+</html>
